@@ -25,6 +25,7 @@ coverage
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
+www/*
 
 # Dependency directories
 node_modules
@@ -35,3 +36,15 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# Mac
+.DS_Store
+
+# Cordova Platforms
+platforms/ios
+platforms/android
+
+# Cordova Plugins
+plugins/*
+!plugins/android.json
+!plugins/fetch.json
