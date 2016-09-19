@@ -1,0 +1,17 @@
+.row
+  .col-xs-12
+    h4 Contact List
+
+    ul.list-group
+      each contact in items
+        if contact.displayName
+          a.list-group-item( href='#contacts/' + contact.id )
+            .row
+              if contact.photos[0]
+                .col-xs-2
+                  img.img-circle( src=contact.photos[0].value, style='width:2rem;' )
+              else
+                .col-xs-2
+                  img.img-circle( src='img/placeholder.svg' style='width:2rem;')
+
+              .col-xs-10= contact.displayName
