@@ -35,8 +35,8 @@ $(document).on 'ready', =>
       $(nav).find('.nav-link').removeClass('active')
 
   $('.nav-item').on 'click', ->
-    console.log 'clicked'
-    console.log $(@)
+    # console.log 'clicked'
+    # console.log $(@)
     $(@).find('.nav-link').addClass('active')
 
     for nav in $(@).siblings('.nav-item')
