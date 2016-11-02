@@ -1,5 +1,5 @@
-Service = require './service'
 RegisterRoute = require './register/route'
+SignInRoute   = require './sign_in/route'
 
 # # # # #
 
@@ -10,11 +10,10 @@ class AuthRouter extends Backbone.Routing.Router
     'auth/sign_in(/)':  'signIn'
 
   register: ->
-    console.log 'REGISTER'
-    # new ListRoute({ container: window.Container })
+    new RegisterRoute({ container: window.Container })
 
   signIn: ->
-    console.log 'SIGN In'
+    new SignInRoute({ container: window.Container })
 
 # # # # #
 

@@ -21,6 +21,7 @@ ContactModule = require './modules/contact/router'
 DeviceModule = require './modules/device/router'
 ContactMethodModule = require './modules/contact_method/router'
 ShareProfileModule = require './modules/share_profile/router'
+AuthModule = require './modules/auth/router'
 
 # # # # #
 
