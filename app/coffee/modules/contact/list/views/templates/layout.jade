@@ -2,6 +2,13 @@
   .col-xs-12
     h4 Contact List
 
+  .col-xs-12
+    a.btn.btn-primary-outline.w-100( href='/#contacts/add' )
+      i.fa.fa-fw.fa-plus
+      | Add
+
+  .col-xs-12.m-t-1
+
     ul.list-group
       each contact in items
         if contact.displayName
