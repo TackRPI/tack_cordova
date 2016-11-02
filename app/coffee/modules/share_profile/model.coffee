@@ -4,6 +4,9 @@ class ShareProfileModel extends Backbone.Model
 
   idAttribute: '_id' # TODO - create base model, add this
 
+  defaults:
+    contact_method_ids: []
+
   parse: (resp) ->
     console.log 'PARSE'
     console.log resp

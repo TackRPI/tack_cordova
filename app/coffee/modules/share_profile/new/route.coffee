@@ -8,11 +8,16 @@ class NewShareProfileRoute extends Backbone.Routing.Route
     @container = options.container
 
   fetch: ->
-    return Backbone.Radio.channel('share_profile').request('model')
-    .then (model) => @model = model
+    return Promise.all([
+      Backbone.Radio.channel('share_profile').request('model'),
+      Backbone.Radio.channel('contact_method').request('collection')
+    ])
+    .then (values) =>
+      @model      = values[0]
+      @collection = values[1]
 
   render: ->
-    @container.show new LayoutView({ model: @model })
+    @container.show new LayoutView({ model: @model, collection: @collection })
 
 # # # # #
 

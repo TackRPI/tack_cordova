@@ -10,7 +10,7 @@ class NewShareProfileLayout extends Marionette.LayoutView
     formRegion: '[data-region=form]'
 
   onRender: ->
-    @formRegion.show new ShareProfileForm({ model: @model })
+    @formRegion.show new ShareProfileForm({ model: @model, collection: @collection })
 
 # # # # #
 
