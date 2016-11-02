@@ -1,3 +1,14 @@
+include ../../../../../../partials/form_helpers
+
 .row
   .col-xs-12
     h4 Register
+
+  .col-xs-12
+    +formInput({ label: 'Email', placeholder: 'Email', name: 'email', type: 'text' })
+
+  .col-xs-12
+    +formInput({ label: 'Password', placeholder: 'Password', name: 'password', type: 'text' })
+
+  .col-xs-12
+    +formInput({ label: 'Password Confirm', placeholder: 'Password Confirm', name: 'password_confirm', type: 'text' })
