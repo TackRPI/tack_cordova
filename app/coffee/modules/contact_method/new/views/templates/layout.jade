@@ -1,7 +1,5 @@
-include ../../../../../../partials/form_helpers
-
-mixin typeButton(opts)
-  .btn.btn-secondary.w-25
+mixin formButton(opts)
+  button.btn.btn-secondary.w-25( data-click='type', data-form=opts.form, class=opts.css  )
     i.fa.fa-fw( class=opts.icon )
 
 .row
@@ -10,49 +8,9 @@ mixin typeButton(opts)
 
   .col-xs-12
     .btn-group.w-100
-      +typeButton({ click: 'email', icon: 'fa-envelope' })
-      +typeButton({ click: 'phone', icon: 'fa-phone' })
-      +typeButton({ click: 'address', icon: 'fa-home' })
-      +typeButton({ click: 'social', icon: 'fa-comments-o' })
+      +formButton({ form: 'email', icon: 'fa-envelope', css: 'active' })
+      +formButton({ form: 'phone', icon: 'fa-phone' })
+      +formButton({ form: 'address', icon: 'fa-home' })
+      +formButton({ form: 'social', icon: 'fa-comments-o' })
 
-  //- Label
-  .col-xs-12
-    +formInput({ label: 'Label', placeholder: 'Label', name: 'label', type: 'text' })
-
-  //- Email
-  .col-xs-12
-    +formInput({ label: 'Email', placeholder: 'Email', name: 'email', type: 'text' })
-
-  //- Phone
-  //- .col-xs-12
-  //-   +formInput({ label: 'Phone', placeholder: 'Phone', name: 'phone', type: 'text' })
-
-  //- Social
-  //- .col-xs-12
-  //-   +formInput({ label: 'Social', placeholder: 'Social', name: 'social', type: 'text' })
-
-  //- Address
-  //- .col-xs-12
-  //-   +formInput({ label: 'Password', placeholder: 'Password', name: 'password', type: 'text' })
-
-  //- .col-xs-12
-  //-   +formInput({ label: 'Password Confirm', placeholder: 'Password Confirm', name: 'password_confirm', type: 'text' })
-
-  //- .col-xs-12
-  //-   +formInput({ label: 'Street', placeholder: 'streetAddress', name: 'streetAddress', type: 'text' })
-
-  //- .col-xs-12
-  //-   +formInput({ label: 'City', placeholder: 'locality', name: 'locality', type: 'text' })
-
-  //- .col-xs-12
-  //-   +formInput({ label: 'State', placeholder: 'region', name: 'region', type: 'text' })
-
-  //- .col-xs-12
-  //-   +formInput({ label: 'Zip', placeholder: 'postalCode', name: 'postalCode', type: 'text' })
-
-  //- .col-xs-12
-  //-   +formInput({ label: 'Country', placeholder: 'country', name: 'country', type: 'text' })
-
-  //- Submit
-  .col-xs-12
-    +submitButton({})
+  .col-xs-12( data-region='form' )
