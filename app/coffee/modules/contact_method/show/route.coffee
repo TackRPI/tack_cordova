@@ -9,8 +9,7 @@ class ContactMethodShowRoute extends Backbone.Routing.Route
 
   fetch: (id) ->
     return Backbone.Radio.channel('contact_method').request('model', id)
-    .then (method) =>
-      @model = method
+    .then (method) => @model = method
 
   render: (id) ->
     @container.show new LayoutView({ model: @model })
