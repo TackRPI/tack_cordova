@@ -1,4 +1,5 @@
 
+# TODO - this should handle the application lifecycle
 class CordovaApp
 
   constructor: ->

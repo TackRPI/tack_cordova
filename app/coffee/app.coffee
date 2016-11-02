@@ -12,8 +12,7 @@ require './config'
 # CordovaApp = require './cordova_app'
 # window.SmsWorker = SmsWorker = require './sms'
 
-window.Container = require './config/layout'
-window.LoadingView = require './views/loading'
+window.Container = require './views/appLayout'
 
 # # # # #
 
@@ -21,6 +20,7 @@ HomeModule = require './modules/home/router'
 ContactModule = require './modules/contact/router'
 DeviceModule = require './modules/device/router'
 ContactMethodModule = require './modules/contact_method/router'
+ShareProfileModule = require './modules/share_profile/router'
 
 # # # # #
 
@@ -37,17 +37,7 @@ ContactMethodModule = require './modules/contact_method/router'
 
 $(document).on 'ready', =>
   console.log 'Document Ready'
+
+  # TODO - this should be moved into the Cordova Application
+  # This should be part of the application lifecycle
   Backbone.history.start()
-
-  # TODOD - this should be removed completely
-  $('.navbar-brand').on 'click', ->
-    for nav in $('.nav-item')
-      $(nav).find('.nav-link').removeClass('active')
-
-  $('.nav-item').on 'click', ->
-    # console.log 'clicked'
-    # console.log $(@)
-    $(@).find('.nav-link').addClass('active')
-
-    for nav in $(@).siblings('.nav-item')
-      $(nav).find('.nav-link').removeClass('active')

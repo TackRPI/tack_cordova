@@ -1,0 +1,10 @@
+.row
+  .col-xs-12
+    h4 Share Profiles
+
+    ul.list-group
+      each profile in items
+
+        a.list-group-item( href='#share_profiles/' + profile._id )
+          .row
+            .col-xs-12= profile._id
