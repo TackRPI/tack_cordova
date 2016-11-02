@@ -2,3 +2,4 @@
 
 module.exports =
   SubmitButton: require './submitButton'
+  ModelEvents:  require './modelEvents'

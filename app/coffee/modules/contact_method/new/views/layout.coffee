@@ -4,11 +4,21 @@ class ContactMethodForm extends Marionette.LayoutView
   className: 'container-fluid'
 
   behaviors:
+    ModelEvents: {}
     SubmitButton: {}
 
   onSubmit: (e) ->
-    console.log 'ON SUBMIT'
-    console.log Backbone.Syphon.serialize(@)
+    attrs = Backbone.Syphon.serialize(@)
+    @model.save(attrs)
+
+  onRequest: ->
+    console.log 'ON REQUEST'
+
+  onError: ->
+    console.log 'ON ERROR'
+
+  onSync: ->
+    console.log 'ON SYNC'
 
 # # # # #
 
