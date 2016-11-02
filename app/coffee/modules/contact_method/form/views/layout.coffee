@@ -28,6 +28,7 @@ class ContactMethodForm extends Marionette.LayoutView
 
   onSync: ->
     console.log 'ON SYNC'
+    window.location = '#contact_methods'
 
 # # # # #
 
