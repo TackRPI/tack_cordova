@@ -12,6 +12,10 @@ class ShareProfileService extends Marionette.Service
   model: (id) ->
     return new Promise (resolve,reject) =>
 
+      # Return new unless ID specified
+      return resolve(new ShareProfileModel()) unless id
+
+      # Return from Cached
       if @cached
         return resolve(@cached.get(id))
       else

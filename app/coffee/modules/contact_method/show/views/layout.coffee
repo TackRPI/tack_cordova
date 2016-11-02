@@ -1,7 +1,9 @@
 
-class ContactShowLayout extends Marionette.LayoutView
+class ContactMethodShowLayout extends Marionette.LayoutView
   template: require './templates/layout'
   className: 'container-fluid'
+
+  # TODO - destroy contactMethod
 
   serializeData: ->
     data = super
@@ -10,4 +12,4 @@ class ContactShowLayout extends Marionette.LayoutView
 
 # # # # #
 
-module.exports = ContactShowLayout
+module.exports = ContactMethodShowLayout

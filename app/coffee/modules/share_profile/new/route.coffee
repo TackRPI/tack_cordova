@@ -2,13 +2,13 @@ LayoutView  = require './views/layout'
 
 # # # # #
 
-class ContactMethodNewRoute extends Backbone.Routing.Route
+class NewShareProfileRoute extends Backbone.Routing.Route
 
   initialize: (options={}) ->
     @container = options.container
 
   fetch: ->
-    return Backbone.Radio.channel('contact_method').request('model')
+    return Backbone.Radio.channel('share_profile').request('model')
     .then (model) => @model = model
 
   render: ->
@@ -16,4 +16,4 @@ class ContactMethodNewRoute extends Backbone.Routing.Route
 
 # # # # #
 
-module.exports = ContactMethodNewRoute
+module.exports = NewShareProfileRoute
