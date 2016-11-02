@@ -3,7 +3,7 @@
 # This allows the dev server at local.corticalmetrics.com:8080 to communicate with dev.corticalmetrics.com:3000 (cm-node-app)
 
 # crossDomainRoot = 'http://rails.tack.host'
-crossDomainRoot = 'http://192.168.20.50:8080'
+crossDomainRoot = 'http://192.168.20.50:8080' # DEV ONLY
 
 proxiedSync = Backbone.sync
 

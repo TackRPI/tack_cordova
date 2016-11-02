@@ -3,6 +3,7 @@ ContactMethodCollection = require './collection'
 
 # # # # #
 
+# TODO - abstract this service into a super-class
 class ContactMethodService extends Marionette.Service
 
   radioRequests:
@@ -12,6 +13,10 @@ class ContactMethodService extends Marionette.Service
   model: (id) ->
     return new Promise (resolve,reject) =>
 
+      # Return new unless ID specified
+      return resolve(new ContactMethodModel()) unless id
+
+      # Return from Cached
       if @cached
         return resolve(@cached.get(id))
       else

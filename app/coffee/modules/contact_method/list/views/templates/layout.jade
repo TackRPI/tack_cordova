@@ -24,6 +24,12 @@ mixin addressItem(method)
   .col-xs-12
     h4 Contact Methods
 
+  .col-xs-12
+    a.btn.btn-secondary( href='#contact_methods/new' )
+      i.fa.fa-fw.fa-plus
+      | New
+
+  .col-xs-12
     ul.list-group
       each method in items
 

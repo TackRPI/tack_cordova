@@ -12,6 +12,7 @@ class ContactService extends Marionette.Service
   model: (id) ->
     return new Promise (resolve,reject) =>
 
+      # Return from @cached
       if @cached
         return resolve(@cached.get(id))
       else
@@ -25,6 +26,7 @@ class ContactService extends Marionette.Service
       return resolve(@cached) if @cached
 
       # Instantiates @cached collection
+      # TODO - error here if first fetch fails!
       @cached = new ContactCollection()
       @cached.on 'sync', => resolve(@cached) # Success callback
       @cached.fetch()
