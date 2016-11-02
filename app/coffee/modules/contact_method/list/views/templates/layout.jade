@@ -1,23 +1,23 @@
 
 mixin emailItem(method)
   .row
-    .col-xs-12
+    .col-xs-2
       i.fa.fa-fw.fa-envelope-o
-    .col-xs-12= method.label
+    .col-xs-10= method.label
     .col-xs-12= method.email
 
 mixin phoneItem(method)
   .row
-    .col-xs-12
+    .col-xs-2
       i.fa.fa-fw.fa-phone
-    .col-xs-12= method.label
-    .col-xs-12= method.email
+    .col-xs-10= method.label
+    .col-xs-12= method.phone
 
 mixin addressItem(method)
   .row
-    .col-xs-12
+    .col-xs-2
       i.fa.fa-fw.fa-home
-    .col-xs-12= method.label
+    .col-xs-10= method.label
     .col-xs-12= method.formatted
 
 .row
