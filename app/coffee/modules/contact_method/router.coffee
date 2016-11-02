@@ -2,6 +2,7 @@ Service = require './service'
 ListRoute = require './list/route'
 NewRoute = require './new/route'
 ShowRoute = require './show/route'
+EditRoute = require './edit/route'
 
 # # # # #
 
@@ -22,8 +23,8 @@ class ContactMethodRouter extends Backbone.Routing.Router
   show: (id) ->
     new ShowRoute({ container: window.Container, id: id })
 
-  edit: ->
-    console.log 'EDIT CONTACT METHOD'
+  edit: (id) ->
+    new EditRoute({ container: window.Container, id: id })
 
 # # # # #
 
