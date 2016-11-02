@@ -2,13 +2,10 @@ include ../../../../../../partials/form_helpers
 
 .row
   .col-xs-12
-    h4 Sign In
+    h4 Password Reset
 
   .col-xs-12
     +formInput({ label: 'Email', placeholder: 'Email', name: 'email', type: 'text' })
 
   .col-xs-12
-    +formInput({ label: 'Password', placeholder: 'Password', name: 'password', type: 'text' })
-
-  .col-xs-12
-    +submitButton({})
+    +submitButton({ text: 'Reset Password' })

@@ -1,4 +1,19 @@
+mixin menuItem(opts)
+  a.list-group-item( href=opts.href style='touch-action:none;' )
+    i.fa.fa-fw.m-r-1( class=opts.icon )
+    = opts.label
+
 .row
-  .col-xs-12.text-center
+  .col-xs-12
     h2 Tack
     p.lead Contacts made easy.
+
+  .col-xs-12
+    ul.list-group
+      +menuItem({ href: '#contacts', icon: 'fa-user-circle-o', label: 'Contacts' })
+      +menuItem({ href: '#contact_methods', icon: 'fa-address-card', label: 'Contact Methods' })
+      +menuItem({ href: '#share_profiles', icon: 'fa-list', label: 'Share Profiles' })
+      +menuItem({ href: '#auth/register', icon: 'fa-user-plus', label: 'Register' })
+      +menuItem({ href: '#auth/sign_in', icon: 'fa-sign-in', label: 'Sign In' })
+      +menuItem({ href: '#auth/reset', icon: 'fa-unlock', label: 'Password Reset' })
+      +menuItem({ href: '#auth/logout', icon: 'fa-sign-out', label: 'Log Out' })
