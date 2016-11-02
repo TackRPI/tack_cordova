@@ -13,4 +13,5 @@
 
         a.list-group-item( href='#share_profiles/' + profile._id )
           .row
-            .col-xs-12= profile._id
+            .col-xs-12= profile.label
+            .col-xs-12= profile.cached.length

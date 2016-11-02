@@ -72,7 +72,7 @@ class ShareProfileForm extends Marionette.LayoutView
   onSubmit: (e) ->
     attrs = Backbone.Syphon.serialize(@)
     console.log attrs
-    # @model.save(attrs)
+    @model.save(attrs)
 
   onRequest: ->
     console.log 'ON REQUEST'
