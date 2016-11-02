@@ -1,0 +1,39 @@
+
+mixin emailItem(method)
+  .row
+    .col-xs-12
+      i.fa.fa-fw.fa-envelope-o
+    .col-xs-12= method.label
+    .col-xs-12= method.email
+
+mixin phoneItem(method)
+  .row
+    .col-xs-12
+      i.fa.fa-fw.fa-phone
+    .col-xs-12= method.label
+    .col-xs-12= method.email
+
+mixin addressItem(method)
+  .row
+    .col-xs-12
+      i.fa.fa-fw.fa-home
+    .col-xs-12= method.label
+    .col-xs-12= method.formatted
+
+.row
+  .col-xs-12
+    h4 Contact Methods
+
+    ul.list-group
+      each method in items
+
+        a.list-group-item( href='#contact_methods/' + method._id )
+
+          if method.type == 'email'
+            +emailItem(method)
+
+          if method.type == 'phone'
+            +phoneItem(method)
+
+          if method.type == 'address'
+            +addressItem(method)
