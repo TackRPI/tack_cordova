@@ -18,10 +18,10 @@ window.Container = require './views/appLayout'
 
 HomeModule = require './modules/home/router'
 ContactModule = require './modules/contact/router'
-DeviceModule = require './modules/device/router'
 ContactMethodModule = require './modules/contact_method/router'
 ShareProfileModule = require './modules/share_profile/router'
 AuthModule = require './modules/auth/router'
+# DeviceModule = require './modules/device/router'
 
 # # # # #
 

@@ -26,8 +26,19 @@ class ContactService extends Marionette.Service
 
       # Instantiates @cached collection
       @cached = new ContactCollection()
-      @cached.on 'sync', => resolve(@cached) # Success callback
-      @cached.fetch()
+
+      # Success callback
+      onFindSuccess = (nativeContacts=[]) =>
+        @cached.reset(nativeContacts, { parse: true })
+        # window.contacts = contacts = new ContactCollection(nativeContacts, { parse: true })
+        return resolve(@cached)
+
+      # Error callback
+      onFindError = () ->
+        console.log 'ERROR FETCHING CONTACTS'
+        return reject()
+
+      navigator.contacts.find(['displayName'], onFindSuccess, onFindError)
 
       return
 

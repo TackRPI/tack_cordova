@@ -1,9 +1,9 @@
-ContactModel = require './model'
-ContactCollection = require './collection'
+ContactMethodModel = require './model'
+ContactMethodCollection = require './collection'
 
 # # # # #
 
-class ContactService extends Marionette.Service
+class ContactMethodService extends Marionette.Service
 
   radioRequests:
     'contact_method model':      'model'
@@ -25,7 +25,7 @@ class ContactService extends Marionette.Service
       return resolve(@cached) if @cached
 
       # Instantiates @cached collection
-      @cached = new ContactCollection()
+      @cached = new ContactMethodCollection()
       @cached.on 'sync', => resolve(@cached) # Success callback
       @cached.fetch()
 
@@ -33,4 +33,4 @@ class ContactService extends Marionette.Service
 
 # # # # #
 
-module.exports = new ContactService()
+module.exports = new ContactMethodService()

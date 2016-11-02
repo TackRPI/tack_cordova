@@ -1,12 +1,11 @@
 
 class ContactModel extends Backbone.Model
-  defaults:
-    photos: []
+  urlRoot: '/contacts'
 
   parse: (resp) ->
-    resp.photos ||= []
-    resp.hasPhotos = if resp.photos[0] then true else false
-    resp
+    console.log 'PARSE'
+    console.log resp
+    return resp
 
 # # # # #
 
