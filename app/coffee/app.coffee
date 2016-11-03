@@ -4,6 +4,7 @@ require './config'
 
 # Top-level layout configuration
 AppLayout = require('./views/appLayout')
+AppLayout.render()
 window.AppLayout = AppLayout
 window.Container = AppLayout.main
 

@@ -3,10 +3,16 @@
 class LayoutView extends Marionette.LayoutView
   el: 'body'
 
+  template: false
+
   regions:
     header: '[data-region=header]'
-    main: '[data-region=main]'
+    main:
+      selector: '[data-region=main]'
+      regionClass: require './animatedRegion'
+      inAnimation: 'fadeInUp'
+      outAnimation: 'fadeOutDown'
 
 # Exports instance
-layout = new LayoutView()
+layout = new LayoutView().render()
 module.exports = layout
