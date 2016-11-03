@@ -4,11 +4,11 @@ class ContactListLayout extends Marionette.LayoutView
   className: 'container-fluid'
 
   authenticatedItems: [
-    'contacts',
-    'contact_methods',
-    'share_profiles',
-    'password_reset',
+    'contacts'
+    'contact_methods'
+    'share_profiles'
     'logout'
+    # 'password_reset',
   ]
 
   menuItems:
@@ -17,7 +17,7 @@ class ContactListLayout extends Marionette.LayoutView
     share_profiles:   { href: '#share_profiles', icon: 'fa-list', label: 'Share Profiles' }
     sign_in:          { href: '#auth/sign_in', icon: 'fa-sign-in', label: 'Sign In' }
     register:         { href: '#auth/register', icon: 'fa-user-plus', label: 'Register' }
-    password_reset:   { href: '#auth/reset', icon: 'fa-unlock', label: 'Password Reset' }
+    # password_reset:   { href: '#auth/reset', icon: 'fa-unlock', label: 'Password Reset' } # TODO - re-enable
     logout:          { href: '#auth/logout', icon: 'fa-sign-out', label: 'Log Out' }
 
   serializeData: ->

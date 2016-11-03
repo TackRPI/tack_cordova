@@ -1,6 +1,6 @@
 .row
   .col-xs-12
-    h4 Contact List
+    h4 Contacts
 
   .col-xs-12
     a.btn.btn-primary-outline.w-100( href='/#contacts/add' )
@@ -10,15 +10,12 @@
   .col-xs-12.m-t-1
 
     ul.list-group
-      each contact in items
-        if contact.displayName
-          a.list-group-item( href='#contacts/' + contact.id )
-            .row
-              if contact.photos[0]
-                .col-xs-2
-                  img.img-circle( src=contact.photos[0].value, style='width:2rem;' )
-              else
-                .col-xs-2
-                  img.img-circle( src='img/placeholder.svg' style='width:2rem;')
+      each update in items
 
-              .col-xs-10= contact.displayName
+        a.list-group-item( href='#updates/' + update.id )
+          .row
+            .col-xs-12= update.label
+            .col-xs-12.json-viewer
+              pre
+                for each in JSON.stringify(update.cache, null, 2).split("\n")
+                  span= each

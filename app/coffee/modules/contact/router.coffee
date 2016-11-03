@@ -10,7 +10,7 @@ class ContactRouter extends Backbone.Routing.Router
   routes:
     'contacts(/)':          'list'
     'contacts/add(/)':      'add'
-    'contacts/:id(/)':      'show'
+    'updates/:id(/)':      'show'
 
 
   list: ->
