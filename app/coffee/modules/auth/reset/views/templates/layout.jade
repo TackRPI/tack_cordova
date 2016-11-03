@@ -1,0 +1,11 @@
+include ../../../../../../partials/form_helpers
+
+.row
+  .col-xs-12
+    h4 Password Reset
+
+  .col-xs-12
+    +formInput({ label: 'Email', placeholder: 'Email', name: 'email', type: 'text' })
+
+  .col-xs-12
+    +submitButton({ text: 'Reset Password' })

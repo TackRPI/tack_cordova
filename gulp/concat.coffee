@@ -19,6 +19,7 @@ gulp.task 'concat', ->
       paths.node_modules + 'backbone-metal/dist/backbone-metal.js'
       paths.node_modules + 'backbone-routing/dist/backbone-routing.js'
       paths.node_modules + 'backbone.radio/build/backbone.radio.js'
+      paths.node_modules + 'backbone.syphon/lib/backbone.syphon.js'
       paths.node_modules + 'marionette-service/dist/marionette-service.js'
       paths.node_modules + 'tether/dist/js/tether.min.js'
       paths.node_modules + 'bootstrap/dist/js/bootstrap.min.js'

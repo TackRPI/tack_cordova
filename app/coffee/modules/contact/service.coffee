@@ -12,6 +12,7 @@ class ContactService extends Marionette.Service
   model: (id) ->
     return new Promise (resolve,reject) =>
 
+      # Return from @cached
       if @cached
         return resolve(@cached.get(id))
       else
@@ -25,20 +26,10 @@ class ContactService extends Marionette.Service
       return resolve(@cached) if @cached
 
       # Instantiates @cached collection
+      # TODO - error here if first fetch fails!
       @cached = new ContactCollection()
-
-      # Success callback
-      onFindSuccess = (nativeContacts=[]) =>
-        @cached.reset(nativeContacts, { parse: true })
-        # window.contacts = contacts = new ContactCollection(nativeContacts, { parse: true })
-        return resolve(@cached)
-
-      # Error callback
-      onFindError = () ->
-        console.log 'ERROR FETCHING CONTACTS'
-        return reject()
-
-      navigator.contacts.find(['displayName'], onFindSuccess, onFindError)
+      @cached.on 'sync', => resolve(@cached) # Success callback
+      @cached.fetch()
 
       return
 

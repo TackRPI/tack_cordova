@@ -1,0 +1,19 @@
+include ../../../../../../partials/form_helpers
+
+.row
+  .col-xs-12
+    h4 Add Contact
+
+
+  .col-xs-12
+    +formInput({ placeholder: 'Enter Tack Username...', name: 'username', type: 'text' })
+
+  .col-xs-12
+    +submitButton({})
+
+  .col-xs-12.m-t-1
+    .btn.btn-lg.btn-primary-outline.w-100
+      i.fa.fa-lg.fa-fw.fa-bluetooth
+      br
+      |Bluetooth
+

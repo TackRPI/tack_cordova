@@ -1,0 +1,59 @@
+
+mixin emailItem(method)
+  .row
+    .col-xs-2
+      i.fa.fa-fw.fa-envelope-o
+    .col-xs-10= method.label
+    .col-xs-12= method.email
+
+mixin phoneItem(method)
+  .row
+    .col-xs-2
+      i.fa.fa-fw.fa-phone
+    .col-xs-10= method.label
+    .col-xs-12= method.phone
+
+mixin addressItem(method)
+  .row
+    .col-xs-2
+      i.fa.fa-fw.fa-home
+    .col-xs-10= method.label
+    .col-xs-12= method.formatted
+
+mixin socialItem(method)
+  .row
+    .col-xs-2
+      i.fa.fa-fw.fa-facebook
+    .col-xs-10= method.label
+    .col-xs-12= method.username
+
+.row
+  .col-xs-12
+    h4 Contact Methods
+
+  .col-xs-12
+    a.btn.btn-secondary.w-100( href='#contact_methods/new' )
+      i.fa.fa-fw.fa-plus
+
+  .col-xs-12.m-t-1
+    ul.list-group
+
+      if items.length == 0
+        li.list-group-item.list-group-item-warning.text-center
+          | No Contact Methods
+
+      each method in items
+
+        a.list-group-item( href='#contact_methods/' + method._id )
+
+          if method.type == 'email'
+            +emailItem(method)
+
+          if method.type == 'phone'
+            +phoneItem(method)
+
+          if method.type == 'address'
+            +addressItem(method)
+
+          if method.type == 'social'
+            +socialItem(method)

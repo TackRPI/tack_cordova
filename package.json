@@ -25,6 +25,7 @@
     "gulp-scss-lint": "~0.2.0",
     "gulp-minify-css": "~1.1.6",
 
+    "animate.css": "^3.4.0",
     "backbone": "~1.2",
     "backbone-metal": "^0.6.2",
     "backbone-relational": "~0.10",
@@ -38,7 +39,7 @@
     "bluebird": "~3.0",
     "bootstrap": "4.0.0-alpha.2",
     "bourbon": "~4.2",
-    "font-awesome": "~4.6",
+    "font-awesome": "~4.7",
     "jquery": "~2.1",
     "marionette-service": "~0.0",
     "moment": "~2.10",

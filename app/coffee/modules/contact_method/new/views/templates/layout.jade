@@ -1,0 +1,16 @@
+mixin formButton(opts)
+  button.btn.btn-secondary.w-25( data-click='type', data-form=opts.form, class=opts.css  )
+    i.fa.fa-fw( class=opts.icon )
+
+.row
+  .col-xs-12
+    h4 New Contact Method
+
+  .col-xs-12
+    .btn-group.w-100
+      +formButton({ form: 'email', icon: 'fa-envelope', css: 'active' })
+      +formButton({ form: 'phone', icon: 'fa-phone' })
+      +formButton({ form: 'address', icon: 'fa-home' })
+      +formButton({ form: 'social', icon: 'fa-comments-o' })
+
+  .col-xs-12( data-region='form' )

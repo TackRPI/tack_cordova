@@ -1,43 +1,31 @@
-require './hammer-time.min'
-window.Promise = require 'bluebird'
 
+# App config
+require './config'
 
-# # # # #
+# Top-level layout configuration
+AppLayout = require('./views/appLayout')
+AppLayout.render()
+window.AppLayout = AppLayout
+window.Container = AppLayout.main
 
-# Cordova app & configuration
-# CordovaApp = require './cordova_app'
-# window.SmsWorker = SmsWorker = require './sms'
+# Components
+HeaderComponent = require './modules/header/component'
 
-window.Container = require './config/layout'
-window.LoadingView = require './views/loading'
-
-# # # # #
-
+# Modules
 HomeModule = require './modules/home/router'
 ContactModule = require './modules/contact/router'
-DeviceModule = require './modules/device/router'
-
-# # # # #
-
-# Cordova plugins
-#   Contacts    https://github.com/apache/cordova-plugin-contacts
-#   SMS         https://github.com/cordova-sms/cordova-sms-plugin
-#   BLE         https://github.com/don/cordova-plugin-ble-central
+ContactMethodModule = require './modules/contact_method/router'
+ShareProfileModule = require './modules/share_profile/router'
+AuthModule = require './modules/auth/router'
+# DeviceModule = require './modules/device/router'
 
 # # # # # #
 
+# Starts application
 $(document).on 'ready', =>
   console.log 'Document Ready'
+
+  # TODO - this should be moved into the Cordova Application
+  # This should be part of the application lifecycle
   Backbone.history.start()
-
-  $('.navbar-brand').on 'click', ->
-    for nav in $('.nav-item')
-      $(nav).find('.nav-link').removeClass('active')
-
-  $('.nav-item').on 'click', ->
-    console.log 'clicked'
-    console.log $(@)
-    $(@).find('.nav-link').addClass('active')
-
-    for nav in $(@).siblings('.nav-item')
-      $(nav).find('.nav-link').removeClass('active')
+  Backbone.Radio.channel('header').trigger('reset')
