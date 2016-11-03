@@ -19,7 +19,12 @@ class SignInLayout extends Marionette.LayoutView
   onSubmit: ->
     attrs = Backbone.Syphon.serialize(@)
     authenticator = new UserAuthenticator()
-    authenticator.on 'sync', (model, resp) -> localStorage.token = resp.auth_token
+
+    authenticator.on 'sync', (model, resp) ->
+      localStorage.token  = resp.auth_token
+      localStorage.user   = resp.user.email
+      window.location = '#'
+
     authenticator.save(attrs)
 
 # # # # #
