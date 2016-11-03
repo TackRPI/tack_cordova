@@ -27,7 +27,7 @@ class ContactMethodService extends Marionette.Service
     return new Promise (resolve,reject) =>
 
       # Return cached
-      return resolve(@cached) if @cached
+      # return resolve(@cached) if @cached
 
       # Instantiates @cached collection
       @cached = new ContactMethodCollection()
