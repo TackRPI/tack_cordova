@@ -1,3 +1,4 @@
+require './service'
 RegisterRoute = require './register/route'
 SignInRoute   = require './sign_in/route'
 ResetRoute    = require './reset/route'

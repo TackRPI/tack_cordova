@@ -7,12 +7,11 @@ class RegisterRoute extends Backbone.Routing.Route
   initialize: (options={}) ->
     @container = options.container
 
-  # fetch: ->
-  #   return Backbone.Radio.channel('share_profile').request('model')
-  #   .then (collection) => @collection = collection
+  fetch: ->
+    @model = Backbone.Radio.channel('auth').request('registrar')
 
   render: (id) ->
-    @container.show new LayoutView({ collection: @collection })
+    @container.show new LayoutView({ model: @model })
 
 # # # # #
 

@@ -1,13 +1,4 @@
 
-class UserAuthenticator extends Backbone.Model
-  urlRoot: '/auth_user'
-
-  defaults:
-    email:    ''
-    password: ''
-
-# # # # #
-
 class SignInLayout extends Marionette.LayoutView
   template: require './templates/layout'
   className: 'container-fluid'
@@ -15,17 +6,9 @@ class SignInLayout extends Marionette.LayoutView
   behaviors:
     SubmitButton: {}
 
-  # TODO - this should be abstracted into an authentication service
   onSubmit: ->
     attrs = Backbone.Syphon.serialize(@)
-    authenticator = new UserAuthenticator()
-
-    authenticator.on 'sync', (model, resp) ->
-      localStorage.token  = resp.auth_token
-      localStorage.user   = resp.user.email
-      window.location = '#'
-
-    authenticator.save(attrs)
+    @model.save(attrs)
 
 # # # # #
 
