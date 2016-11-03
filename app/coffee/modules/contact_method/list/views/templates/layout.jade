@@ -37,6 +37,11 @@ mixin socialItem(method)
 
   .col-xs-12.m-t-1
     ul.list-group
+
+      if items.length == 0
+        li.list-group-item.list-group-item-warning.text-center
+          | No Contact Methods
+
       each method in items
 
         a.list-group-item( href='#contact_methods/' + method._id )
