@@ -9,6 +9,7 @@ class AuthService extends Marionette.Service
     'auth registrar':         'registrar'
     'auth password:resetter': 'passwordResetter'
     'auth is:authenticated':  'isAuthenticated'
+    'auth user':              'username'
 
   authenticator: ->
     return new Models.Authenticator()
@@ -23,6 +24,10 @@ class AuthService extends Marionette.Service
     user = localStorage.user
     token = localStorage.token
     return !!(user && token)
+
+  username: ->
+    return localStorage.user
+
 
 # # # # #
 

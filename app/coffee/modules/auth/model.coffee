@@ -15,6 +15,7 @@ class Authenticator extends Backbone.Model
     localStorage.token  = resp.auth_token
     localStorage.user   = resp.user.email
     window.location     = '#'
+    Backbone.Radio.channel('header').trigger('reset')
 
 # User Authentication Subclass
 class UserAuthenticator extends Authenticator
