@@ -14,7 +14,6 @@
 
         a.list-group-item( href='#updates/' + update.id )
           .row
-            //- .col-xs-12= update.label
             .col-xs-12.json-viewer
               pre
                 for each in JSON.stringify(update.cache, null, 2).split("\n")
