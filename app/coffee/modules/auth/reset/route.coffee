@@ -4,7 +4,7 @@ LayoutView  = require './views/layout'
 
 class ResetRoute extends Backbone.Routing.Route
 
-  initialize: (options={}) ->
+  initialize: (options={}) -> # TODO - get rid of this boilerplate
     @container = options.container
 
   fetch: ->
