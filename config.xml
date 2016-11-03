@@ -28,4 +28,5 @@
     <plugin name="cordova-plugin-contacts" spec="~2.2.0" />
     <plugin name="cordova-plugin-ble-central" spec="~1.1.2" />
     <plugin name="cordova-plugin-compat" spec="~1.0.0" />
+    <engine name="ios" spec="~4.2.1" />
 </widget>

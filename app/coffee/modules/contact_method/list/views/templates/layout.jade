@@ -1,31 +1,19 @@
 
 mixin emailItem(method)
-  .row
-    .col-xs-2
-      i.fa.fa-fw.fa-envelope-o
-    .col-xs-10= method.label
-    .col-xs-12= method.email
+  .text-xs-left= method.label
+  small.text-xs-right.text-muted= method.email
 
 mixin phoneItem(method)
-  .row
-    .col-xs-2
-      i.fa.fa-fw.fa-phone
-    .col-xs-10= method.label
-    .col-xs-12= method.phone
+  .text-xs-left= method.label
+  small.text-xs-right.text-muted= method.phone
 
 mixin addressItem(method)
-  .row
-    .col-xs-2
-      i.fa.fa-fw.fa-home
-    .col-xs-10= method.label
-    .col-xs-12= method.formatted
+  .text-xs-left= method.label
+  small.text-xs-right.text-muted= method.formatted
 
 mixin socialItem(method)
-  .row
-    .col-xs-2
-      i.fa.fa-fw.fa-facebook
-    .col-xs-10= method.label
-    .col-xs-12= method.username
+  .text-xs-left= method.label
+  small.text-xs-right.text-muted= method.username
 
 .row
   .col-xs-12

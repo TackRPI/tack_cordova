@@ -2,17 +2,9 @@
   .col-xs-12
     h4= label
 
-  //- .col-xs-12
-  //-   .btn.btn-primary.w-100 Manage Users
-
   .col-xs-12.m-t-1
     ul.list-group
       for each in cached.methods
         li.list-group-item
           .text-xs-left= each.label
           small.text-xs-right.text-muted= each.value
-
-  //- .col-xs-12.json-viewer.m-t-1
-  //-   pre
-  //-     for each in json
-  //-       span= each

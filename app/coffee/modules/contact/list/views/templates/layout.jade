@@ -3,7 +3,7 @@
     h4 Contacts
 
   .col-xs-12
-    a.btn.btn-primary-outline.w-100( href='/#contacts/add' )
+    a.btn.btn-primary-outline.w-100( href='#contacts/add' )
       i.fa.fa-fw.fa-plus
       | Add
 
@@ -14,7 +14,6 @@
 
         a.list-group-item( href='#updates/' + update.id )
           .row
-            .col-xs-12= update.label
             .col-xs-12.json-viewer
               pre
                 for each in JSON.stringify(update.cache, null, 2).split("\n")
