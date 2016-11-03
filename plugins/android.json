@@ -18,6 +18,9 @@
         },
         "cordova-plugin-compat": {
             "PACKAGE_NAME": "com.example.tack"
+        },
+        "cordova-plugin-velda-devicefeedback": {
+            "PACKAGE_NAME": "com.example.tack"
         }
     },
     "dependent_plugins": {}

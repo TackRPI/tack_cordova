@@ -1,0 +1,23 @@
+//- TODO - abstract this into a separate file
+mixin contact_method_icon(type)
+  if type == 'email'
+    i.fa.fa-fw.fa-envelope-o
+  else if type == 'phone'
+    i.fa.fa-fw.fa-phone
+  else if type == 'address'
+    i.fa.fa-fw.fa-home
+  else if type == 'social'
+    i.fa.fa-fw.fa-facebook
+  else
+    i.fa.fa-fw.fa-globe
+
+//-
+
+.row
+  .col-xs-2
+    +contact_method_icon(type)
+
+  .col-xs-8= label
+
+  .col-xs-2
+    input(type='checkbox')

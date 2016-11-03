@@ -1,0 +1,17 @@
+include ../../../../../../partials/form_helpers
+
+//- Label
+.col-xs-12
+  +formInput({ label: 'Label', placeholder: 'Label', name: 'label', type: 'text' })
+
+//- Contact Method IDs
+select( name='contact_method_ids', multiple=true, hidden=true )
+  each opt in items
+    option= opt._id
+
+//- ContactMethod picker
+.col-xs-12( data-region='contact_methods' )
+
+//- Submit
+.col-xs-12.m-t-1
+  +submitButton({})

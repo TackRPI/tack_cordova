@@ -1,4 +1,5 @@
 
+# TODO - this should be a service
 class SMSWorker
 
   constructor: ->
