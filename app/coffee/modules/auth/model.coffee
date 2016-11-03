@@ -12,10 +12,7 @@ class Authenticator extends Backbone.Model
       console.log resp
 
   setToken: (resp) ->
-    localStorage.token  = resp.auth_token
-    localStorage.user   = resp.user.email
-    window.location     = '#'
-    Backbone.Radio.channel('header').trigger('reset')
+    Backbone.Radio.channel('auth').request('set:token', resp)
 
 # User Authentication Subclass
 class UserAuthenticator extends Authenticator

@@ -10,6 +10,8 @@ class AuthService extends Marionette.Service
     'auth password:resetter': 'passwordResetter'
     'auth is:authenticated':  'isAuthenticated'
     'auth user':              'username'
+    'auth logout':            'logout'
+    'auth set:token':         'setToken'
 
   authenticator: ->
     return new Models.Authenticator()
@@ -28,6 +30,17 @@ class AuthService extends Marionette.Service
   username: ->
     return localStorage.user
 
+  logout: -> # Ideally this should be a session, setter as well
+    delete localStorage.user
+    delete localStorage.token
+    window.location = '#'
+    Backbone.Radio.channel('header').trigger('reset')
+
+  setToken: (resp) ->
+    localStorage.token  = resp.auth_token
+    localStorage.user   = resp.user.email
+    window.location     = '#'
+    Backbone.Radio.channel('header').trigger('reset')
 
 # # # # #
 
