@@ -20,6 +20,13 @@ mixin addressItem(method)
     .col-xs-10= method.label
     .col-xs-12= method.formatted
 
+mixin socialItem(method)
+  .row
+    .col-xs-2
+      i.fa.fa-fw.fa-facebook
+    .col-xs-10= method.label
+    .col-xs-12= method.username
+
 .row
   .col-xs-12
     h4 Contact Methods
@@ -42,3 +49,6 @@ mixin addressItem(method)
 
           if method.type == 'address'
             +addressItem(method)
+
+          if method.type == 'social'
+            +socialItem(method)

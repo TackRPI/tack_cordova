@@ -8,7 +8,7 @@ class ContactMethodModel extends Backbone.Model
     resp.type = 'email'   if !!resp.email
     resp.type = 'phone'   if !!resp.phone
     resp.type = 'address' if !!resp.streetAddress
-    resp.type = 'social'  if !!resp.social
+    resp.type = 'social'  if !!resp.username
     return resp
 
 # # # # #

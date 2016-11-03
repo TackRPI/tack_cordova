@@ -7,11 +7,6 @@ class ShareProfileModel extends Backbone.Model
   defaults:
     contact_method_ids: []
 
-  parse: (resp) ->
-    console.log 'PARSE'
-    console.log resp
-    return resp
-
 # # # # #
 
 module.exports = ShareProfileModel
