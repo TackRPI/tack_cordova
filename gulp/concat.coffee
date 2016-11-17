@@ -23,6 +23,7 @@ gulp.task 'concat', ->
       paths.node_modules + 'marionette-service/dist/marionette-service.js'
       paths.node_modules + 'tether/dist/js/tether.min.js'
       paths.node_modules + 'bootstrap/dist/js/bootstrap.min.js'
+      paths.node_modules + 'backbone.dualStorage/backbone.dualStorage.js'
     ])
     # .pipe plumber()
     .pipe concat('vendor.js')
