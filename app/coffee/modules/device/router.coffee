@@ -4,7 +4,7 @@ ShowRoute = require './show/route'
 
 # # # # #
 
-class DeviceRouter extends Backbone.Routing.Router
+class DeviceRouter extends require '../base/router'
 
   routes:
     'devices(/)':          'list'
@@ -13,13 +13,13 @@ class DeviceRouter extends Backbone.Routing.Router
   list: ->
     plugins?.deviceFeedback.haptic()
     plugins?.deviceFeedback.acoustic()
-    new ListRoute({ container: window.Container })
+    new ListRoute({ container: @container })
 
   show: (id) ->
     plugins?.deviceFeedback.haptic()
     plugins?.deviceFeedback.acoustic()
-    new ShowRoute({ container: window.Container, id: id })
+    new ShowRoute({ container: @container, id: id })
 
 # # # # #
 
-module.exports = new DeviceRouter()
+module.exports = new DeviceRouter({ container: window.Layout.mainRegion })

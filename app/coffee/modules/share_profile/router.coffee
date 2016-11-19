@@ -5,7 +5,7 @@ ShowRoute = require './show/route'
 
 # # # # #
 
-class ShareProfileRouter extends Backbone.Routing.Router
+class ShareProfileRouter extends require '../base/router'
 
   routes:
     'share_profiles(/)':          'list'
@@ -14,17 +14,17 @@ class ShareProfileRouter extends Backbone.Routing.Router
     'share_profiles/:id/edit(/)': 'edit'
 
   list: ->
-    new ListRoute({ container: window.Container })
+    new ListRoute({ container: @container })
 
   new: ->
-    new NewRoute({ container: window.Container })
+    new NewRoute({ container: @container })
 
   show: (id) ->
-    new ShowRoute({ container: window.Container, id: id })
+    new ShowRoute({ container: @container, id: id })
 
   edit: (id) ->
     console.log 'EDIT SHARE PROFILE'
 
 # # # # #
 
-module.exports = new ShareProfileRouter()
+module.exports = new ShareProfileRouter({ container: window.Layout.mainRegion })

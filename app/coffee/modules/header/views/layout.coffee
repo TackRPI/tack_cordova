@@ -7,7 +7,6 @@ class HeaderView extends Marionette.LayoutView
     'click .navbar-brand': 'toggleSidebar'
 
   toggleSidebar: ->
-    console.log 'SIDEBAR TOGGLE?'
     Backbone.Radio.channel('sidebar').trigger('toggle')
 
   serializeData: ->

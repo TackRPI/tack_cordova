@@ -13,12 +13,12 @@ class ContactRouter extends Backbone.Routing.Router
   list: ->
     plugins?.deviceFeedback.haptic()
     plugins?.deviceFeedback.acoustic()
-    new ListRoute({ container: window.Container })
+    new ListRoute({ container: @container })
 
   show: (id) ->
     plugins?.deviceFeedback.haptic()
     plugins?.deviceFeedback.acoustic()
-    new ShowRoute({ container: window.Container, id: id })
+    new ShowRoute({ container: @container, id: id })
 
 # # # # #
 

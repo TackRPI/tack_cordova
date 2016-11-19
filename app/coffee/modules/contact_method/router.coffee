@@ -6,7 +6,7 @@ EditRoute = require './edit/route'
 
 # # # # #
 
-class ContactMethodRouter extends Backbone.Routing.Router
+class ContactMethodRouter extends require '../base/router'
 
   routes:
     'contact_methods(/)':           'list'
@@ -15,17 +15,17 @@ class ContactMethodRouter extends Backbone.Routing.Router
     'contact_methods/:id/edit(/)':  'edit'
 
   list: ->
-    new ListRoute({ container: window.Container })
+    new ListRoute({ container: @container })
 
   new: ->
-    new NewRoute({ container: window.Container })
+    new NewRoute({ container: @container })
 
   show: (id) ->
-    new ShowRoute({ container: window.Container, id: id })
+    new ShowRoute({ container: @container, id: id })
 
   edit: (id) ->
-    new EditRoute({ container: window.Container, id: id })
+    new EditRoute({ container: @container, id: id })
 
 # # # # #
 
-module.exports = new ContactMethodRouter()
+module.exports = new ContactMethodRouter({ container: window.Layout.mainRegion })

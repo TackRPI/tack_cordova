@@ -5,7 +5,7 @@ ShowRoute = require './show/route'
 
 # # # # #
 
-class ContactRouter extends Backbone.Routing.Router
+class ContactRouter extends require '../base/router'
 
   routes:
     'contacts(/)':          'list'
@@ -14,14 +14,14 @@ class ContactRouter extends Backbone.Routing.Router
 
 
   list: ->
-    new ListRoute({ container: window.Container })
+    new ListRoute({ container: @container })
 
   add: ->
-    new AddRoute({ container: window.Container })
+    new AddRoute({ container: @container })
 
   show: (id) ->
-    new ShowRoute({ container: window.Container, id: id })
+    new ShowRoute({ container: @container, id: id })
 
 # # # # #
 
-module.exports = new ContactRouter()
+module.exports = new ContactRouter({ container: window.Layout.mainRegion })
