@@ -9,28 +9,26 @@ window.Layout = Layout = require('./views/appLayout')
 # Components
 # TODO - what are components? - routeless services with views
 # Generally accessible anywhere in the application
-HeaderComponent   = require './modules/header/component'
-ConfirmComponent  = require './components/confirm'
-SidebarComponent  = require './components/sidebar/component'
-FlashComponent    = require './components/flash/component'
+require './components/header/component'
+require './components/sidebar/component'
+require './components/flash/component'
+require './components/confirm/component'
 
 # Modules
 # TODO - what are modules? - they have routes
-HomeModule = require './modules/home/router'
-ContactModule = require './modules/contact/router'
-ContactMethodModule = require './modules/contact_method/router'
-ShareProfileModule = require './modules/share_profile/router'
-AuthModule = require './modules/auth/router'
+require './modules/auth/router'
+require './modules/contact/router'
+require './modules/contact_method/router'
+require './modules/home/router'
+require './modules/share_profile/router'
 # DeviceModule = require './modules/device/router'
 
 # # # # # #
 
 # Starts application
 $(document).on 'ready', =>
-  console.log 'Document Ready'
 
-  # TODO - this should be moved into the Cordova Application
-  # This should be part of the application lifecycle
+  # TODO - move this into CordovaApplication, manages lifecycle
   Backbone.history.start()
   Backbone.Radio.channel('header').trigger('reset')
   Backbone.Radio.channel('sidebar').trigger('initialize')

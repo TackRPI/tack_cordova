@@ -2,10 +2,7 @@ LayoutView  = require './views/layout'
 
 # # # # #
 
-class HomeRoute extends Backbone.Routing.Route
-
-  initialize: (options={}) ->
-    @container = options.container
+class HomeRoute extends require '../../base/route'
 
   render: ->
     @container.show new LayoutView()

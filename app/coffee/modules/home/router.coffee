@@ -2,7 +2,7 @@ HomeRoute = require './home/route'
 
 # # # # #
 
-class HomeRouter extends Backbone.Routing.Router
+class HomeRouter extends require '../base/router'
 
   routes:
     '(/)':  'home'
@@ -12,4 +12,4 @@ class HomeRouter extends Backbone.Routing.Router
 
 # # # # #
 
-module.exports = new HomeRouter()
+module.exports = new HomeRouter({ container: window.Layout.mainRegion })
