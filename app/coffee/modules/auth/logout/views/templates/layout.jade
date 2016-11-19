@@ -5,7 +5,4 @@ include ../../../../../../partials/form_helpers
     h4 Logout
 
   .col-xs-12
-    strong Are you sure?
-
-  .col-xs-12
-    +submitButton({ text: 'Logout' })
+    +button({ text: 'Logout' })(data-click='cancel', class='btn-danger w-100')

@@ -3,7 +3,9 @@ class ContactMethodShowLayout extends Marionette.LayoutView
   template: require './templates/layout'
   className: 'container-fluid'
 
-  # TODO - destroy contactMethod
+  behaviors:
+    DestroyButton:
+      message: 'Are you sure you want to destroy this model Contact Method?'
 
   serializeData: ->
     data = super

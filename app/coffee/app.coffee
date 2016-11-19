@@ -3,13 +3,17 @@
 require './config'
 
 # Top-level layout configuration
-AppLayout = require('./views/appLayout')
-AppLayout.render()
-window.AppLayout = AppLayout
-window.Container = AppLayout.main
+# Pattern: singleton
+window.Layout = Layout = require('./views/appLayout')
+
+# TODO - remove
+# AppLayout.render()
+window.AppLayout = Layout
+window.Container = Layout.main
 
 # Components
 HeaderComponent = require './modules/header/component'
+HeaderComponent = require './components/confirm'
 
 # Modules
 HomeModule = require './modules/home/router'
