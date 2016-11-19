@@ -24,4 +24,4 @@ class ConfirmComponent extends require '../modal/abstract'
 
 # # # # #
 
-module.exports = new ConfirmComponent({ container: window.Layout.modal })
+module.exports = new ConfirmComponent({ container: window.Layout.modalRegion })

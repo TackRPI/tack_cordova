@@ -1,0 +1,44 @@
+
+html, body
+  height: 100%
+
+.flash-region
+  position: fixed
+  z-index: 50
+  width: 100%
+  right: 0
+
+.header-region
+  position: fixed
+  width: 100%
+  z-index: 100
+
+.main-region
+  transition: opacity 0.3s ease-in-out
+  padding-top: 4.5rem
+
+.sidebar-region
+  position: fixed
+  z-index: 100
+  width: 14rem
+  background: $body-bg
+  height: 200%
+  left: 0
+  margin-left: -14rem
+  margin-top: 3.5rem
+  border-right: 1px solid #ccc
+  transition: margin-left .25s ease-out
+
+  a.nav-link.divider
+    padding: 0.2rem 1rem
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+
+// // // //
+
+body.sidebar-active
+
+  .sidebar-region
+    margin-left: 0rem
+
+  .main-region
+    opacity: 0.5

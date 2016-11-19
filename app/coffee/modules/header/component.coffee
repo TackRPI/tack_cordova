@@ -3,7 +3,7 @@ LayoutView = require './views/layout'
 class HeaderService extends Marionette.Service
 
   initialize: ->
-    @container = window.AppLayout.header
+    @container = @options.container
 
   radioEvents:
     'header reset': 'reset'
@@ -14,4 +14,4 @@ class HeaderService extends Marionette.Service
 
 # # # # #
 
-module.exports = new HeaderService()
+module.exports = new HeaderService({ container: window.Layout.headerRegion })

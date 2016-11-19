@@ -6,16 +6,16 @@ require './config'
 # Pattern: singleton
 window.Layout = Layout = require('./views/appLayout')
 
-# TODO - remove
-# AppLayout.render()
-window.AppLayout = Layout
-window.Container = Layout.main
-
 # Components
-HeaderComponent = require './modules/header/component'
-HeaderComponent = require './components/confirm'
+# TODO - what are components? - routeless services with views
+# Generally accessible anywhere in the application
+HeaderComponent   = require './modules/header/component'
+ConfirmComponent  = require './components/confirm'
+SidebarComponent  = require './components/sidebar/component'
+FlashComponent    = require './components/flash/component'
 
 # Modules
+# TODO - what are modules? - they have routes
 HomeModule = require './modules/home/router'
 ContactModule = require './modules/contact/router'
 ContactMethodModule = require './modules/contact_method/router'
@@ -33,3 +33,4 @@ $(document).on 'ready', =>
   # This should be part of the application lifecycle
   Backbone.history.start()
   Backbone.Radio.channel('header').trigger('reset')
+  Backbone.Radio.channel('sidebar').trigger('initialize')
