@@ -22,7 +22,7 @@ class ContactShowLayout extends Marionette.LayoutView
 
   onSync: ->
     @flashSuccess()
-    window.location = '#share_profiles' # TODO - handle redirection in state service?
+    Backbone.Radio.channel('app').trigger('redirect','#share_profiles')
 
   onError: ->
     @flashError()

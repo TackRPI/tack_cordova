@@ -8,6 +8,25 @@ class ContactService extends require '../base/service'
   modelPrototype:       ContactModel
   collectionPrototype:  ContactCollection
 
+  radioRequests: =>
+    requests = super
+    requests['contact new'] = 'newNative'
+    return requests
+
+  newNative: (params) ->
+
+    # Create new Native Contact
+    contact = navigator.contacts.create()
+    contact.displayName = params.displayName
+    contact.nickname    = params.displayName
+
+    # Phone Numbers
+    phoneNumbers = []
+    phoneNumbers[0] = new ContactField('cell', params.phone, false)
+    contact.phoneNumbers = phoneNumbers
+
+    return contact
+
   collection: ->
     return new Promise (resolve,reject) =>
 
@@ -23,7 +42,6 @@ class ContactService extends require '../base/service'
 
       # Error callback
       onFindError = () ->
-        console.log 'ERROR FETCHING CONTACTS'
         return reject()
 
       # Native contacts fetch

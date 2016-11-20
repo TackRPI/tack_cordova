@@ -1,52 +1,33 @@
 
+# TODO - document
 class ContactModel extends Backbone.Model
 
   # TODO - remove photos logic?
   defaults:
     photos: []
 
+  # TODO - remove photos logic?
   parse: (resp) ->
     resp.photos ||= []
     resp.hasPhotos = if resp.photos[0] then true else false
     resp
 
+  # Overwritten 'save' method to manage native contact
+  # creation logic
   save: (params) =>
 
     # Sets the attributes locally
+    # Mimics standard Backbone.js behavior
     @set(params)
 
-    # Success Callback
-    onSuccess = (contact) =>
-      console.log 'TODO - text shareProfile.toVCard() here'
-      # Backbone.Radio.channel('sms').trigger('send:share_profile', @get('phone'))
-      @trigger('sync', contact)
+    # Success & Error Callbacks
+    onSuccess = (contact) => @trigger('sync', contact)
+    onError = (contactError) => @trigger('error', contactError)
 
-    # Error Callback
-    onError = (contactError) =>
-      @trigger('error', contactError)
+    # Request native Contact
+    contact = Backbone.Radio.channel('contact').request('new', params)
 
-    # # # # #
-    # TODO - abstract this into the service
-    # create a new native contact object
-    contact = navigator.contacts.create()
-    contact.displayName = params.displayName
-    contact.nickname    = params.displayName
-
-    # populate some fields
-    # TODO - drop this?
-    # name = new ContactName()
-    # name.givenName = "Jane"
-    # name.familyName = "Doe"
-    # contact.name = name
-
-    # Populate phone
-    phoneNumbers = []
-    phoneNumbers[0] = new ContactField('cell', params.phone, false)
-    contact.phoneNumbers = phoneNumbers
-    #
-    # # # # #
-
-    # save to device
+    # Saves native contact locally on device
     contact.save(onSuccess,onError)
 
 # # # # #

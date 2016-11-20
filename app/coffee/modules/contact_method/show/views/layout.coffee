@@ -17,7 +17,7 @@ class ContactMethodShowLayout extends Marionette.LayoutView
 
   onSync: ->
     @flashSuccess()
-    window.location = '#contact_methods' # TODO - handle redirection in state service?
+    Backbone.Radio.channel('app').trigger('redirect','#contact_methods')
 
   onError: ->
     @flashError()

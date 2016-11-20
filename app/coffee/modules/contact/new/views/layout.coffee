@@ -44,17 +44,19 @@ class ContactAddView extends Marionette.LayoutView
   onSync: ->
     @flashSuccess()
 
-    console.log @model.attributes
+    # Redirects unless ShareProfile was selected
+    return @redirect() unless @model.get('share_profile_id')
 
-    if @model.get('share_profile_id')
-      @sendSms().then (args) =>
-        @flashSuccess({ message: 'ShareProfile sent via SMS.'})
-        window.location = '#contacts' # TODO - redirection, state service?
-    else
-      window.location = '#contacts' # TODO - redirection, state service?
+    # Sends ShareProfile SMS
+    @sendSms().then (args) =>
+      @flashSuccess({ message: 'ShareProfile sent via SMS.'})
+      @redirect()
+
+  redirect: ->
+    Backbone.Radio.channel('app').trigger('redirect', '#contacts')
 
   sendSms: =>
-    # Gets ShareProfile
+    # Gets ShareProfile by ID
     id = @model.get('share_profile_id')
     shareProfile = @collection.get(id)
 

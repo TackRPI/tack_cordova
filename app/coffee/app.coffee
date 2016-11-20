@@ -40,12 +40,9 @@ require './modules/update_dispatch/router'
 # Starts application
 $(document).on 'ready', =>
 
-  # Instantiates and initializes new App
+  # Instantiates and new App
   app = new App()
-  app.initialize()
 
-  # TODO - this is debug
-  # This will be removed
-  # Backbone.history.start()
-  # Backbone.Radio.channel('header').trigger('reset')
-  # Backbone.Radio.channel('sidebar').trigger('reset')
+  # TODO - this is debug only
+  # app.onDeviceReady()
+

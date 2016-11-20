@@ -35,7 +35,7 @@ class ContactMethodForm extends Marionette.LayoutView
 
   onSync: ->
     @flashSuccess()
-    window.location = '#contact_methods' # TODO - redirection, state service?
+    Backbone.Radio.channel('app').trigger('redirect','#contact_methods')
 
 # # # # #
 
