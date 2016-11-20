@@ -1,4 +1,5 @@
 
+# TODO - document
 class RegisterLayout extends Marionette.LayoutView
   template: require './templates/layout'
   className: 'container-fluid'
@@ -16,20 +17,25 @@ class RegisterLayout extends Marionette.LayoutView
   modelEvents:
     'change': 'validate'
 
-  onRender: ->
-    @validate()
-
   validate: ->
     data = Backbone.Syphon.serialize(@)
-    return @enableSubmit() if data.email && data.password && data.password_confirmation && (data.password == data.password_confirmation)
+    return @enableSubmit() if data.email && data.password && data.password_confirmation && (data.password == data.password_confirmation) # TODO - break this out into a model validation
     return @disableSubmit()
+
+  onRender: ->
+    @validate()
 
   onSubmit: ->
     @model.save(Backbone.Syphon.serialize(@))
 
-  onRequest: -> @disableSubmit()
-  onError: ->   @flashError()
-  onSync: ->    @flashSuccess()
+  onRequest: ->
+    @disableSubmit()
+
+  onError: ->
+    @flashError()
+
+  onSync: ->
+    @flashSuccess()
 
 # # # # #
 
