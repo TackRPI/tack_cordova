@@ -19,11 +19,9 @@ class ContactRouter extends require '../base/router'
     new ListRoute({ container: @container })
 
   addBluetooth: ->
-    console.log 'ADD BLUETOOTH'
     new AddBluetoothRoute({ container: @container })
 
   addManual: ->
-    console.log 'MANUAL'
     new AddManualRoute({ container: @container })
 
   show: (id) ->
