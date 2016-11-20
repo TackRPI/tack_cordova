@@ -22,17 +22,16 @@ ALL USE CASES
   - [X] Edit
   - [X] Destroy
 
-- [ ] ShareProfile
+- [X] ShareProfile
   - [X] List
   - [X] Create
-  - [ ] Edit
+  - [X] Edit
   - [X] Destroy
 
 - [ ] Auth
   - [X] Login
   - [X] Logout
-  - [ ] Register - server must authenticate presence of email attribute
-  - [ ] ResetPassword? We can drop this feature.
+  - [X] Register - server must authenticate presence of email attribute
 
 - [ ] Contacts
   - [ ] Add Manually

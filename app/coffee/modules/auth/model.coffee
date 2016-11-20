@@ -2,14 +2,9 @@
 # Super-class Authenticator
 class Authenticator extends Backbone.Model
 
-  # TODO - abstract into AuthService?
+  # TODO - abstract this into AuthService?
   initialize: ->
     @on 'sync', (model, resp) => @setToken(resp)
-
-    @on 'error', (model, resp) ->
-      console.log 'AUTHENTICATOR ERROR'
-      console.log model
-      console.log resp
 
   setToken: (resp) ->
     Backbone.Radio.channel('auth').request('set:token', resp)
