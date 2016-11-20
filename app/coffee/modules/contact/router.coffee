@@ -1,11 +1,11 @@
 Service = require './service'
 ListRoute = require './list/route'
 ShowRoute = require './show/route'
-NewRoute  = require './add_manual/route'
+NewRoute  = require './new/route'
 
 # # # # #
 
-class ContactRouter extends Backbone.Routing.Router
+class ContactRouter extends require '../base/router'
 
   routes:
     'contacts(/)':      'list'

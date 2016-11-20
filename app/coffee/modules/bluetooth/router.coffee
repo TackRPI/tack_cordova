@@ -1,14 +1,16 @@
-ConnectRoute = require './add_bluetooth/route'
+ConnectRoute = require './connect/route'
 
 # # # # #
 
-class BluetoothRouter extends Backbone.Routing.Router
+class BluetoothRouter extends require '../base/router'
 
   routes:
     'bluetooth/connect(/)': 'connect'
 
   connect: ->
-    new ListRoute({ container: @container })
+    console.log 'connnect?'
+    console.log @container
+    new ConnectRoute({ container: @container })
 
 # # # # #
 
