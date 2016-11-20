@@ -15,11 +15,6 @@ class ContactMethodShowLayout extends Marionette.LayoutView
       error:
         message:  'Error destroying Contact Method.'
 
-  serializeData: ->
-    data = super
-    data.json = JSON.stringify(@model.toJSON(), null, 2).split("\n")
-    return data
-
   onSync: ->
     @flashSuccess()
     window.location = '#contact_methods' # TODO - handle redirection in state service?

@@ -4,14 +4,21 @@
 
 class ContactMethodPickerChild extends Marionette.LayoutView
   template: require './templates/contact_method_child'
-  className: 'list-group-item'
   tagName: 'li'
 
   events:
     'change input[type=checkbox]': 'onCheckboxChange'
 
-  # onRender: ->
-  #   console.log @options.selected
+  isSelected: ->
+    return _.contains(@options.selected, @model.id)
+
+  className: ->
+    css = 'list-group-item'
+    css += ' active' if @isSelected()
+    return css
+
+  templateHelpers: ->
+    { checked: @isSelected() }
 
   onCheckboxChange: (e) ->
     selected = @$(e.currentTarget).prop('checked')
@@ -45,9 +52,9 @@ class ShareProfileForm extends Marionette.LayoutView
 
     Flashes:
       success:
-        message:  'Share Profile created.'
+        message:  'Share Profile saved.'
       error:
-        message:  'Error creating Share Profile.'
+        message:  'Error saving Share Profile.'
 
   regions:
     contactMethodsRegion: '[data-region=contact_methods]'

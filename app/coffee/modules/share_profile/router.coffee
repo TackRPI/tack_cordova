@@ -2,6 +2,7 @@ Service = require './service'
 ListRoute = require './list/route'
 NewRoute = require './new/route'
 ShowRoute = require './show/route'
+EditRoute = require './edit/route'
 
 # # # # #
 
@@ -23,7 +24,7 @@ class ShareProfileRouter extends require '../base/router'
     new ShowRoute({ container: @container, id: id })
 
   edit: (id) ->
-    console.log 'EDIT SHARE PROFILE'
+    new EditRoute({ container: @container, id: id })
 
 # # # # #
 

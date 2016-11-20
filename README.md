@@ -26,12 +26,12 @@ ALL USE CASES
   - [X] List
   - [X] Create
   - [ ] Edit
-  - [ ] Destroy
+  - [X] Destroy
 
 - [ ] Auth
   - [X] Login
   - [X] Logout
-  - [ ] Register - server must authenticate presence of
+  - [ ] Register - server must authenticate presence of email attribute
   - [ ] ResetPassword? We can drop this feature.
 
 - [ ] Contacts
