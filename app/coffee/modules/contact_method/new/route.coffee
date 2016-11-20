@@ -2,16 +2,19 @@ LayoutView  = require './views/layout'
 
 # # # # #
 
-class ContactMethodNewRoute extends Backbone.Routing.Route
+class ContactMethodNewRoute extends require '../../base/route'
 
-  initialize: (options={}) ->
-    @container = options.container
-
+  initialize: (options) ->
+    console.log 'ADJKASHDJKASH>'
+    console.log @options
+    console.log options
   fetch: ->
-    return Backbone.Radio.channel('contact_method').request('model')
-    .then (model) => @model = model
+    console.log 'FETCHING?'
+    # return Backbone.Radio.channel('contact_method').request('model')
+    # .then (model) => @model = model
 
   render: ->
+    console.log @model
     @container.show new LayoutView({ model: @model })
 
 # # # # #

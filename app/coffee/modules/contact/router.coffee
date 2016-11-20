@@ -1,19 +1,18 @@
 Service = require './service'
 ListRoute = require './list/route'
 ShowRoute = require './show/route'
-
 AddBluetoothRoute = require './add_bluetooth/route'
 AddManualRoute    = require './add_manual/route'
 
 # # # # #
 
-class ContactRouter extends require '../base/router'
+class ContactRouter extends Backbone.Routing.Router
 
   routes:
-    'contacts(/)':            'list'
+    'contacts(/)':          'list'
     'contacts/add_bt(/)':     'addBluetooth'
     'contacts/add_manual(/)': 'addManual'
-    'updates/:id(/)':         'show'
+    'contacts/:id(/)':      'show'
 
   list: ->
     new ListRoute({ container: @container })
@@ -29,4 +28,4 @@ class ContactRouter extends require '../base/router'
 
 # # # # #
 
-module.exports = new ContactRouter({ container: window.Layout.mainRegion })
+module.exports = new ContactRouter()

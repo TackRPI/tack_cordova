@@ -1,7 +1,3 @@
-# ContactModel = require './model'
-# ContactCollection = require './collection'
-
-# # # # #
 
 # TODO - document
 class BaseService extends Marionette.Service
@@ -20,8 +16,13 @@ class BaseService extends Marionette.Service
   model: (id) ->
     return new Promise (resolve,reject) =>
 
+      # Return new unless ID
+      console.log 'getting model?'
+      console.log @
+      return resolve(new @modelPrototype()) unless id
+
       # Return from @cached
-      if @cached
+      if @cached._synced?
         return resolve(@cached.get(id))
       else
         @collection().then () =>

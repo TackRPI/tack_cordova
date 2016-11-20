@@ -18,7 +18,9 @@ class ContactMethodRouter extends require '../base/router'
     new ListRoute({ container: @container })
 
   new: ->
-    new NewRoute({ container: @container })
+    console.log 'NEW?'
+    route = new NewRoute({ container: @container })
+    console.log route
 
   show: (id) ->
     new ShowRoute({ container: @container, id: id })

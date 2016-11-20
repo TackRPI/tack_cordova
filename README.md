@@ -41,6 +41,7 @@ ALL USE CASES
   - [ ] Send ShareProfile
 
 - [ ] UpdateDispatches
+  - [ ] Service ONLY
   - [ ] Sync into Native Contacts
 
 
