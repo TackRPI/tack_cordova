@@ -3,11 +3,18 @@
     h4 Contacts
 
   .col-xs-12
-    a.btn.btn-primary-outline.w-100( href='#contacts/add' )
+    a.btn.btn-primary-outline.w-100( href='#contacts/add_manual' )
       i.fa.fa-fw.fa-plus
-      | Add
+      | Add Manually
 
-  .col-xs-12.m-t-1
+.row.m-t-1
+  .col-xs-12
+    a.btn.btn-primary-outline.w-100( href='#contacts/add_bluetooth' )
+      i.fa.fa-fw.fa-plus
+      | Add Bluetooth
+
+.row.m-t-1
+  .col-xs-12
 
     ul.list-group
       each update in items
