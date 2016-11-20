@@ -14,6 +14,13 @@ class BluetoothService extends Marionette.Service
     'bluetooth stop:scan': 'stopScan'
     'bluetooth has:permission': 'hasPermission'
     'bluetooth request:permission': 'requestPermission'
+    'bluetooth collection': 'collection'
+
+  initialize: ->
+    @cached = new BtCollection()
+
+  collection: =>
+    return @cached
 
   initializeBt: ->
     onSuccess = (obj) =>
@@ -22,11 +29,9 @@ class BluetoothService extends Marionette.Service
 
     bluetoothle.initialize(onSuccess, {request: true})
 
-  # # # # #
-
   startScan: =>
-    @cached ||= new BtCollection()
     @cached.reset([])
+    window.devices = @cached
 
     onSuccess = (obj) =>
       return unless obj.status == 'scanResult'
@@ -47,6 +52,8 @@ class BluetoothService extends Marionette.Service
     bluetoothle.startScan(onSuccess, onError, params)
 
     setTimeout( @stopScan, 5000 )
+
+    return @cached
 
   # # # # #
 
