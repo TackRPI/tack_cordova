@@ -42,3 +42,12 @@ ALL USE CASES
 
 - [ ] UpdateDispatches
   - [ ] Sync into Native Contacts
+
+
+
+# # # # #
+
+Style Guide (maintained with .editorconfig)
+- 2-space indentation
+- single quotes for string constants, double quotes only when interpolated
+-

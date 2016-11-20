@@ -20,7 +20,7 @@ class SidebarView extends Marionette.LayoutView
   ]
 
   menuItems:
-    contacts:         { href: '#contacts',        icon: 'fa-user-circle-o', title: 'Contacts' }
+    contacts:         { href: '#contacts',        icon: 'fa-user-circle-o', title: 'Contacts', divider: true }
     contact_methods:  { href: '#contact_methods', icon: 'fa-address-card',  title: 'Contact Methods' }
     share_profiles:   { href: '#share_profiles',  icon: 'fa-list',          title: 'Share Profiles', divider: true }
     sign_in:          { href: '#auth/sign_in',    icon: 'fa-sign-in',       title: 'Sign In', divider: true }
