@@ -22,12 +22,11 @@ class ContactAddView extends Marionette.LayoutView
 
   onSync: ->
     @flashSuccess()
-    window.location = '#contact_methods' # TODO - redirection, state service?
+    window.location = '#contacts' # TODO - redirection, state service?
 
   onSubmit: (e) ->
     attrs = Backbone.Syphon.serialize(@)
-    console.log attrs
-    # Backbone.channel('contact').request('add', attrs) # TODO - implement
+    @model.save(attrs)
 
 # # # # #
 

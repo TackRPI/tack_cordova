@@ -8,6 +8,9 @@ class BtCollection extends Backbone.Collection
 
 class BluetoothService extends Marionette.Service
 
+  radioEvents:
+    'app start': 'initializeBt'
+
   radioRequests:
     'bluetooth initialize':  'initializeBt'
     'bluetooth start:scan':  'startScan'
@@ -15,10 +18,11 @@ class BluetoothService extends Marionette.Service
     'bluetooth has:permission': 'hasPermission'
     'bluetooth request:permission': 'requestPermission'
     'bluetooth collection': 'collection'
+    'bluetooth start:advertising': 'startAdvertising'
+    'bluetooth add:service': 'addService'
 
   initialize: ->
     @cached = new BtCollection()
-    @initializeBt()
 
   collection: =>
     @startScan()
@@ -28,6 +32,7 @@ class BluetoothService extends Marionette.Service
     onSuccess = (obj) =>
       console.log 'initialization success'
       console.log obj.success
+      @requestPermission()
 
     bluetoothle.initialize(onSuccess, {request: true})
 
@@ -67,7 +72,6 @@ class BluetoothService extends Marionette.Service
   # # # # #
 
   startAdvertising: ->
-    console.log 'ON INITIALIZED'
 
     onSuccess = (obj) =>
       console.log 'success'
@@ -77,12 +81,47 @@ class BluetoothService extends Marionette.Service
       console.log 'error'
       console.log obj
 
-    params = {
+    params =
       service:  "1234", # //Android
       name:     "Tack Application"
-    }
 
     bluetoothle.startAdvertising(onSuccess, onError, params)
+
+  addService: =>
+    params = {
+      service: "1234",
+      characteristics: [
+        {
+          uuid: "ABCD",
+          permissions: {
+            read: true,
+            write: true,
+            # readEncryptionRequired: false,
+            # writeEncryptionRequired: false,
+          },
+          properties : {
+            read: true,
+            writeWithoutResponse: true,
+            write: true,
+            notify: true,
+            indicate: true,
+            # authenticatedSignedWrites: false,
+            # notifyEncryptionRequired: false,
+            # indicateEncryptionRequired: false,
+          }
+        }
+      ]
+    }
+
+    onSuccess = (obj) =>
+      console.log 'success add service'
+      console.log obj
+
+    onError = (obj) =>
+      console.log 'error add service'
+      console.log obj
+
+    bluetoothle.addService(onSuccess, onError, params)
 
   # # # # #
 

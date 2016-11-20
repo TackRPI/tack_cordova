@@ -31,6 +31,7 @@ class CordovaApp
     Backbone.history.start()
     Backbone.Radio.channel('header').trigger('reset')
     Backbone.Radio.channel('sidebar').trigger('reset')
+    Backbone.Radio.channel('app').trigger('start')
 
 # # # # #
 
