@@ -54,13 +54,14 @@ class ContactAddView extends Marionette.LayoutView
       window.location = '#contacts' # TODO - redirection, state service?
 
   sendSms: =>
-    console.log 'SEND SHARE PROFILE'
-    console.log 'TO: ', attrs.phone
+    # Gets ShareProfile
+    id = @model.get('share_profile_id')
+    shareProfile = @collection.get(id)
 
-    shareProfile = @collection.get(attrs.share_profile_id)
-    console.log shareProfile
-    console.log shareProfile.toMessage()
-    return Backbone.Radio.channel('sms').request('send', attrs.phone, shareProfile.toMessage())
+    # Sends ShareProfile
+    phone = @model.get('phone')
+    message = shareProfile.toMessage()
+    return Backbone.Radio.channel('sms').request('send', phone, message)
 
   onSubmit: (e) ->
     @disableSubmit()

@@ -11,11 +11,11 @@ class FlashesBehavior extends Marionette.Behavior
     @view.flashError    = @flashError
     @view.flashSuccess  = @flashSuccess
 
-  flashError: (obj={}) ->
-    _sendFlash('error', @_flashes['error'] || obj)
+  flashError: (obj=null) ->
+    _sendFlash('error', obj || @_flashes['error'])
 
-  flashSuccess: (obj={}) ->
-    _sendFlash('success', @_flashes['success'] || obj)
+  flashSuccess: (obj=null) ->
+    _sendFlash('success', obj || @_flashes['success'])
 
 # # # # #
 
