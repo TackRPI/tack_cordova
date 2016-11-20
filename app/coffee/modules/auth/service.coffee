@@ -7,7 +7,6 @@ class AuthService extends Marionette.Service
   radioRequests:
     'auth authenticator':     'authenticator'
     'auth registrar':         'registrar'
-    'auth password:resetter': 'passwordResetter'
     'auth is:authenticated':  'isAuthenticated'
     'auth user':              'username'
     'auth logout':            'logout'
@@ -18,9 +17,6 @@ class AuthService extends Marionette.Service
 
   registrar: ->
     return new Models.Registrar()
-
-  passwordResetter: ->
-    return new Models.PasswordResetter()
 
   isAuthenticated: ->
     user = localStorage.user

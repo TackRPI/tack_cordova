@@ -1,4 +1,6 @@
 
+# TODO - break this out into a separate file
+# TODO - document
 class SidebarView extends Marionette.LayoutView
   template: require './template'
   className: 'nav nav-pills nav-stacked'
@@ -15,7 +17,6 @@ class SidebarView extends Marionette.LayoutView
     'contact_methods'
     'share_profiles'
     'logout'
-    # 'password_reset',
   ]
 
   menuItems:
@@ -24,7 +25,6 @@ class SidebarView extends Marionette.LayoutView
     share_profiles:   { href: '#share_profiles',  icon: 'fa-list',          title: 'Share Profiles', divider: true }
     sign_in:          { href: '#auth/sign_in',    icon: 'fa-sign-in',       title: 'Sign In' }
     register:         { href: '#auth/register',   icon: 'fa-user-plus',     title: 'Register' }
-    # password_reset:   { href: '#auth/reset', icon: 'fa-unlock', title: 'Password Reset' } # TODO - re-enable
     logout:          { href: '#auth/logout',      icon: 'fa-sign-out',      title: 'Log Out', divider: true }
 
   serializeData: ->
@@ -45,6 +45,7 @@ class SidebarView extends Marionette.LayoutView
 
 # # # # #
 
+# TODO - document
 class SidebarComponent extends Marionette.Service
 
   radioEvents:

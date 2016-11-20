@@ -26,17 +26,9 @@ class UserRegistrar extends Authenticator
     password: ''
     password_confirmation: ''
 
-# Password Reset Model
-class PasswordResetter extends Backbone.Model
-  urlRoot: '/auth/reset'
-
-  defaults:
-    email:  ''
-
 # # # # #
 
 # Exports all models
 module.exports =
   Authenticator:    UserAuthenticator
   Registrar:        UserRegistrar
-  PasswordResetter: PasswordResetter

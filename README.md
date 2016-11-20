@@ -28,12 +28,17 @@ ALL USE CASES
   - [X] Edit
   - [X] Destroy
 
-- [ ] Auth
+- [X] Auth
   - [X] Login
   - [X] Logout
-  - [X] Register - server must authenticate presence of email attribute
+  - [X] Register
 
 - [ ] Contacts
+  - [ ] List
+  - [ ] Show
   - [ ] Add Manually
   - [ ] Add Bluetooth
   - [ ] Send ShareProfile
+
+- [ ] UpdateDispatches
+  - [ ] Sync into Native Contacts
