@@ -2,7 +2,7 @@ LayoutView  = require './views/layout'
 
 # # # # #
 
-class ManualAddRoute extends require '../../base/route'
+class NewRoute extends require '../../base/route'
 
   # fetch: (id) ->
   #   return Backbone.Radio.channel('contact').request('model', id)
@@ -13,4 +13,4 @@ class ManualAddRoute extends require '../../base/route'
 
 # # # # #
 
-module.exports = ManualAddRoute
+module.exports = NewRoute

@@ -2,7 +2,7 @@ LayoutView  = require './views/layout'
 
 # # # # #
 
-class BluetoothAddRoute extends require '../../base/route'
+class BluetoothRoute extends require '../../base/route'
 
   # fetch: (id) ->
   #   return Backbone.Radio.channel('contact').request('model', id)
@@ -13,4 +13,4 @@ class BluetoothAddRoute extends require '../../base/route'
 
 # # # # #
 
-module.exports = BluetoothAddRoute
+module.exports = BluetoothRoute

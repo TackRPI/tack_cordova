@@ -6,13 +6,13 @@ class SidebarView extends Marionette.LayoutView
   className: 'nav nav-pills nav-stacked'
   tagName: 'nav'
 
-  menuItems: [
+  menuItems: [ # TODO - clean indentation
     { href: '#contacts',        icon: 'fa-user-circle-o', title: 'Contacts', divider: true }
     { href: '#contact_methods', icon: 'fa-address-card',  title: 'Contact Methods' }
     { href: '#share_profiles',  icon: 'fa-list',          title: 'Share Profiles', divider: true }
     { href: '#update_dispatches', icon: 'fa-list',          title: 'Update Dispatches', divider: true }
-    { href: '#contacts/add_mn', icon: 'fa-bluetooth',          title: 'Bluetooth' }
-    { href: '#contacts/add_bt', icon: 'fa-plus',          title: 'Manual', divider: true }
+    { href: '#bluetooth/connect', icon: 'fa-bluetooth',          title: 'Bluetooth' }
+    { href: '#contacts/new', icon: 'fa-plus',          title: 'Manual', divider: true }
     { href: '#auth/logout',      icon: 'fa-sign-out',      title: 'Log Out', divider: true }
   ]
 
