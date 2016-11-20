@@ -46,8 +46,6 @@ ALL USE CASES
   - [ ] Service ONLY
   - [ ] Sync into Native Contacts
 
-
-
 # # # # #
 
 Style Guide (maintained with .editorconfig)

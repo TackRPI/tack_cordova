@@ -9,23 +9,20 @@
 #   SMS         https://github.com/cordova-sms/cordova-sms-plugin
 #   BLE         https://github.com/don/cordova-plugin-ble-central
 
-# TODO - device feedback
-# plugins?.deviceFeedback.haptic()
-# plugins?.deviceFeedback.acoustic()
-
 # # # # #
 
-# TODO - this should handle the application lifecycle
+# TODO - documentation
+# this handles application lifecycle
+# 'deviceready' event is fired when the cordova framework has successfully
+# bootstrapped the mobile device on which the app is running
 class CordovaApp
 
   constructor: ->
-    console.log 'constructor'
     @initialize()
 
   initialize: ->
-    console.log 'initialize'
     document.addEventListener 'deviceready', @onDeviceReady, false
-    return
+    return true
 
   onDeviceReady: ->
     Backbone.history.start()

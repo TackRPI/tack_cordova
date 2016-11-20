@@ -10,5 +10,9 @@ include ../../../../../../partials/form_helpers
   .col-xs-12
     +formInput({ placeholder: 'Phone Number', name: 'phone', type: 'number' })
 
+  input( name='share_profile_id', type='hidden' )
+  .col-xs-12( data-region='share-profiles')
+
+.row.m-t-1
   .col-xs-12
     +submitButton({})

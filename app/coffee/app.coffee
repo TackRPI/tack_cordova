@@ -20,7 +20,7 @@ require './components/confirm/component'
 # TODO - what are modules? - they have routes & entities
 # they contain 'routes' which represent end-points in the app
 require './modules/auth/router'
-require './modules/bluetooth/router'
+# require './modules/bluetooth/router'
 require './modules/contact/router'
 require './modules/contact_method/router'
 require './modules/home/router'
@@ -37,6 +37,6 @@ $(document).on 'ready', =>
   new App()
 
   # TODO - this is debug
-  # Backbone.history.start()
-  # Backbone.Radio.channel('header').trigger('reset')
-  # Backbone.Radio.channel('sidebar').trigger('reset')
+  Backbone.history.start()
+  Backbone.Radio.channel('header').trigger('reset')
+  Backbone.Radio.channel('sidebar').trigger('reset')
