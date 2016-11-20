@@ -2,6 +2,14 @@
   .col-xs-12
     h4= label
 
+  .col-xs-12
+    .btn-group.w-100
+      a.btn.btn-success-outline.w-50( href='#share_profiles/' + _id + '/edit' )
+        i.fa.fa-fw.fa-pencil
+
+      a.btn.btn-danger-outline.w-50( data-click='destroy' )
+        i.fa.fa-fw.fa-trash
+
   .col-xs-12.m-t-1
     ul.list-group
       for each in cached.methods

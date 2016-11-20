@@ -18,13 +18,13 @@ ALL USE CASES
 
 - [X] ContactMethod
   - [X] List
-  - [X] Create (needs flashes)
-  - [X] Edit (needs flashes)
+  - [X] Create
+  - [X] Edit
   - [X] Destroy
 
 - [ ] ShareProfile
-  - [ ] List
-  - [ ] Create
+  - [X] List
+  - [X] Create
   - [ ] Edit
   - [ ] Destroy
 

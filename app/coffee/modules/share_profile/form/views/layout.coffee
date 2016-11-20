@@ -43,6 +43,12 @@ class ShareProfileForm extends Marionette.LayoutView
     ModelEvents: {}
     SubmitButton: {}
 
+    Flashes:
+      success:
+        message:  'Share Profile created.'
+      error:
+        message:  'Error creating Share Profile.'
+
   regions:
     contactMethodsRegion: '[data-region=contact_methods]'
 
@@ -71,17 +77,17 @@ class ShareProfileForm extends Marionette.LayoutView
 
   onSubmit: (e) ->
     attrs = Backbone.Syphon.serialize(@)
-    console.log attrs
     @model.save(attrs)
 
   onRequest: ->
-    console.log 'ON REQUEST'
+    @disableSubmit() # TODO - disable inputs as well?
 
   onError: ->
-    console.log 'ON ERROR'
+    @flashError()
+    @enableSubmit()
 
   onSync: ->
-    console.log 'ON SYNC'
+    @flashSuccess()
     window.location = '#share_profiles'
 
 # # # # #
