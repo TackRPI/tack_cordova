@@ -11,7 +11,6 @@ class BluetoothRouter extends require '../base/router'
     'bluetooth/connect(/)': 'connect'
 
   devices: ->
-    console.log 'LIST DEVICES'
     new ListRoute({ container: @container })
 
   connect: ->

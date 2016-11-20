@@ -8,6 +8,7 @@ class HomeView extends Marionette.LayoutView
     'contact_methods'
     'share_profiles'
     'logout'
+    'list'
   ]
 
   menuItems:
@@ -17,6 +18,7 @@ class HomeView extends Marionette.LayoutView
     sign_in:          { href: '#auth/sign_in', icon: 'fa-sign-in', label: 'Sign In' }
     register:         { href: '#auth/register', icon: 'fa-user-plus', label: 'Register' }
     logout:           { href: '#auth/logout', icon: 'fa-sign-out', label: 'Log Out' }
+    list:             { href: '#bluetooth/devices', icon: 'fa-sign-out', label: 'BT DEVICES' }
 
   serializeData: ->
     authenticated = Backbone.Radio.channel('auth').request('is:authenticated')

@@ -5,10 +5,10 @@ LayoutView  = require './views/layout'
 class BluetoothRoute extends require '../../base/route'
 
   fetch: ->
-    return Backbone.Radio.channel('bluetooth').request('collection')
-    .then (collection) => @collection = collection
+    @collection = Backbone.Radio.channel('bluetooth').request('collection')
 
-  render: (id) ->
+  render: ->
+    console.log @collection
     @container.show new LayoutView({ collection: @collection })
 
 # # # # #

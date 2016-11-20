@@ -1,5 +1,5 @@
 
-class BtModel extends Backbone.Collection
+class BtModel extends Backbone.Model
 
 class BtCollection extends Backbone.Collection
   model: BtModel
@@ -18,8 +18,10 @@ class BluetoothService extends Marionette.Service
 
   initialize: ->
     @cached = new BtCollection()
+    @initializeBt()
 
   collection: =>
+    @startScan()
     return @cached
 
   initializeBt: ->
@@ -30,12 +32,12 @@ class BluetoothService extends Marionette.Service
     bluetoothle.initialize(onSuccess, {request: true})
 
   startScan: =>
-    @cached.reset([])
     window.devices = @cached
 
     onSuccess = (obj) =>
       return unless obj.status == 'scanResult'
-      console.log obj
+      # console.log obj
+      obj.id = obj.address
       @cached.add(obj)
 
     onError = (obj) =>
@@ -53,7 +55,7 @@ class BluetoothService extends Marionette.Service
 
     setTimeout( @stopScan, 5000 )
 
-    return @cached
+    return true
 
   # # # # #
 
