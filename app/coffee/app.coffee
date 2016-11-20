@@ -31,4 +31,4 @@ $(document).on 'ready', =>
   # TODO - move this into CordovaApplication, manages lifecycle
   Backbone.history.start()
   Backbone.Radio.channel('header').trigger('reset')
-  Backbone.Radio.channel('sidebar').trigger('initialize')
+  Backbone.Radio.channel('sidebar').trigger('reset')

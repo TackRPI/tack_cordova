@@ -23,8 +23,8 @@ class SidebarView extends Marionette.LayoutView
     contacts:         { href: '#contacts',        icon: 'fa-user-circle-o', title: 'Contacts' }
     contact_methods:  { href: '#contact_methods', icon: 'fa-address-card',  title: 'Contact Methods' }
     share_profiles:   { href: '#share_profiles',  icon: 'fa-list',          title: 'Share Profiles', divider: true }
-    sign_in:          { href: '#auth/sign_in',    icon: 'fa-sign-in',       title: 'Sign In' }
-    register:         { href: '#auth/register',   icon: 'fa-user-plus',     title: 'Register' }
+    sign_in:          { href: '#auth/sign_in',    icon: 'fa-sign-in',       title: 'Sign In', divider: true }
+    register:         { href: '#auth/register',   icon: 'fa-user-plus',     title: 'Register', divider: true }
     logout:          { href: '#auth/logout',      icon: 'fa-sign-out',      title: 'Log Out', divider: true }
 
   serializeData: ->
@@ -49,9 +49,9 @@ class SidebarView extends Marionette.LayoutView
 class SidebarComponent extends Marionette.Service
 
   radioEvents:
-    'sidebar initialize': 'showView'
-    'sidebar toggle':     'toggleSidebar'
-    'sidebar hide':       'hideSidebar'
+    'sidebar reset':  'showView'
+    'sidebar toggle': 'toggleSidebar'
+    'sidebar hide':   'hideSidebar'
 
   showView: ->
     @view = new SidebarView({ modules: @modules })
