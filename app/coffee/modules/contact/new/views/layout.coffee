@@ -1,22 +1,5 @@
 
-class ShareProfileChild extends Marionette.LayoutView
-  template: require './templates/share_profile_child'
-  className: 'list-group-item'
-  tagName: 'li'
-
-  events:
-    'click': 'onClick'
-
-  onClick: (e) ->
-    @trigger('selected')
-    @$el.addClass('active').siblings().removeClass('active')
-
-# # # # #
-
-class ShareProfileList extends Marionette.CollectionView
-  childView: ShareProfileChild
-  className: 'list-group'
-  tagName: 'ul'
+ShareProfilePicker = require './shareProfilePicker'
 
 # # # # #
 
@@ -37,16 +20,16 @@ class ContactAddView extends Marionette.LayoutView
   regions:
     shareProfileRegion: '[data-region=share-profiles]'
 
+  ui:
+    shareProfileId: '[name=share_profile_id]'
+
   onRender: ->
     @showShareProfilePicker()
 
   showShareProfilePicker: ->
-    shareProfilePicker = new ShareProfileList({ collection: @collection })
-
-    # TODO - clean this up
-    shareProfilePicker.on 'childview:selected', (view, selected) =>
-      @$('[name=share_profile_id]').val(view.model.id)
-
+    shareProfilePicker = new ShareProfilePicker({ collection: @collection })
+    shareProfilePicker.on 'childview:selected', (view, selected) => @ui.shareProfileId.val(view.model.id)
+    shareProfilePicker.on 'childview:deselected', (view, selected) => @ui.shareProfileId.val('')
     @shareProfileRegion.show shareProfilePicker
 
   onRequest: ->

@@ -1,5 +1,7 @@
 
 class ContactModel extends Backbone.Model
+
+  # TODO - remove photos logic?
   defaults:
     photos: []
 
@@ -12,11 +14,14 @@ class ContactModel extends Backbone.Model
 
     onSuccess = (contact) =>
       console.log 'TODO - text shareProfile.toVCard() here'
+      # Backbone.Radio.channel('sms').trigger('send:share_profile', @get('phone'))
       @trigger('sync', contact)
 
     onError = (contactError) =>
       @trigger('error', contactError)
 
+    # # # # #
+    # TODO - abstract this into the service
     # create a new native contact object
     contact = navigator.contacts.create()
     contact.displayName = params.displayName
@@ -33,6 +38,8 @@ class ContactModel extends Backbone.Model
     phoneNumbers = []
     phoneNumbers[0] = new ContactField('cell', params.phone, false)
     contact.phoneNumbers = phoneNumbers
+    #
+    # # # # #
 
     # save to device
     contact.save(onSuccess,onError)

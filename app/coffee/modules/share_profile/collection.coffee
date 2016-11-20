@@ -1,7 +1,7 @@
 
 class ShareProfileCollection extends Backbone.Collection
   model: require './model'
-  url: '/share_profiles'
+  url: '/share_profiles/'
 
 # # # # #
 
