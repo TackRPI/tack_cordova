@@ -1,6 +1,8 @@
 Service = require './service'
 ListRoute = require './list/route'
 ShowRoute = require './show/route'
+
+# TODO - break this into the 'add' module
 AddBluetoothRoute = require './add_bluetooth/route'
 AddManualRoute    = require './add_manual/route'
 
@@ -11,7 +13,7 @@ class ContactRouter extends Backbone.Routing.Router
   routes:
     'contacts(/)':          'list'
     'contacts/add_bt(/)':     'addBluetooth'
-    'contacts/add_manual(/)': 'addManual'
+    'contacts/add_mn(/)': 'addManual'
     'contacts/:id(/)':      'show'
 
   list: ->

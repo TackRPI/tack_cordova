@@ -1,6 +1,6 @@
 Service = require './service'
 ListRoute = require './list/route'
-NewRoute = require './new/route'
+CreateRoute = require './new/route'
 ShowRoute = require './show/route'
 EditRoute = require './edit/route'
 
@@ -18,9 +18,7 @@ class ContactMethodRouter extends require '../base/router'
     new ListRoute({ container: @container })
 
   new: ->
-    console.log 'NEW?'
-    route = new NewRoute({ container: @container })
-    console.log route
+    new CreateRoute({ container: @container })
 
   show: (id) ->
     new ShowRoute({ container: @container, id: id })

@@ -22,6 +22,11 @@ class ContactMethodShowLayout extends Marionette.LayoutView
   onError: ->
     @flashError()
 
+  serializeData: -> # TODO - remove
+    data = super
+    data.json = JSON.stringify(@model.toJSON(), null, 2).split("\n")
+    data
+
 # # # # #
 
 module.exports = ContactMethodShowLayout

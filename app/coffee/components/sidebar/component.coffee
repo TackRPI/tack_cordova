@@ -6,42 +6,24 @@ class SidebarView extends Marionette.LayoutView
   className: 'nav nav-pills nav-stacked'
   tagName: 'nav'
 
+  menuItems: [
+    { href: '#contacts',        icon: 'fa-user-circle-o', title: 'Contacts', divider: true }
+    { href: '#contact_methods', icon: 'fa-address-card',  title: 'Contact Methods' }
+    { href: '#share_profiles',  icon: 'fa-list',          title: 'Share Profiles', divider: true }
+    { href: '#update_dispatches', icon: 'fa-list',          title: 'Update Dispatches', divider: true }
+    { href: '#contacts/add_mn', icon: 'fa-bluetooth',          title: 'Bluetooth' }
+    { href: '#contacts/add_bt', icon: 'fa-plus',          title: 'Manual', divider: true }
+    { href: '#auth/logout',      icon: 'fa-sign-out',      title: 'Log Out', divider: true }
+  ]
+
   events:
     'click a': 'onClicked'
 
   onClicked: ->
     Backbone.Radio.channel('sidebar').trigger('hide')
 
-  authenticatedItems: [
-    'contacts'
-    'contact_methods'
-    'share_profiles'
-    'logout'
-  ]
-
-  menuItems:
-    contacts:         { href: '#contacts',        icon: 'fa-user-circle-o', title: 'Contacts', divider: true }
-    contact_methods:  { href: '#contact_methods', icon: 'fa-address-card',  title: 'Contact Methods' }
-    share_profiles:   { href: '#share_profiles',  icon: 'fa-list',          title: 'Share Profiles', divider: true }
-    sign_in:          { href: '#auth/sign_in',    icon: 'fa-sign-in',       title: 'Sign In', divider: true }
-    register:         { href: '#auth/register',   icon: 'fa-user-plus',     title: 'Register', divider: true }
-    logout:          { href: '#auth/logout',      icon: 'fa-sign-out',      title: 'Log Out', divider: true }
-
   serializeData: ->
-    authenticated = Backbone.Radio.channel('auth').request('is:authenticated')
-
-    items = {}
-
-    # Authenticated
-    if authenticated
-      items[i] = @menuItems[i] for i in @authenticatedItems
-
-    # Not authenticated
-    else
-      for key, val of @menuItems
-        items[key] = @menuItems[key] if @authenticatedItems.indexOf(key) == -1
-
-    return { items: items }
+    return { items: @menuItems }
 
 # # # # #
 

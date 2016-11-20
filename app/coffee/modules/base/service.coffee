@@ -17,11 +17,8 @@ class BaseService extends Marionette.Service
     return new Promise (resolve,reject) =>
 
       # Return new unless ID
-      console.log 'getting model?'
-      console.log @
       return resolve(new @modelPrototype()) unless id
 
-      # Return from @cached
       if @cached._synced?
         return resolve(@cached.get(id))
       else
@@ -29,7 +26,7 @@ class BaseService extends Marionette.Service
           return resolve(@cached.get(id))
 
   collection: ->
-    return new Promise (resolve,reject) =>
+    return new Promise (resolve, reject) =>
 
       # Return cached
       return resolve(@cached) if @cached._synced?
@@ -40,9 +37,7 @@ class BaseService extends Marionette.Service
         resolve(@cached) # Success callback
 
       # Fetches
-      @cached.fetch()
-
-      return
+      return @cached.fetch()
 
 # # # # #
 
