@@ -31,14 +31,14 @@ class AuthService extends Marionette.Service
     delete localStorage.token
     window.location = '#'
     Backbone.Radio.channel('header').trigger('reset')
-    Backbone.Radio.channel('sidebar').trigger('reset')
+    Backbone.Radio.channel('sidebar').trigger('hide')
 
   setToken: (resp) ->
     localStorage.token  = resp.auth_token
     localStorage.user   = resp.user.email
     window.location     = '#'
     Backbone.Radio.channel('header').trigger('reset')
-    Backbone.Radio.channel('sidebar').trigger('reset')
+    Backbone.Radio.channel('sidebar').trigger('hide')
 
 # # # # #
 

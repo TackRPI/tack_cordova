@@ -27,8 +27,7 @@ class ContactAddView extends Marionette.LayoutView
   onSubmit: (e) ->
     attrs = Backbone.Syphon.serialize(@)
     console.log attrs
-    # TODO - native contact service
-    # Backbone.channel('native:contact').request('add', attrs)
+    # Backbone.channel('contact').request('add', attrs) # TODO - implement
 
 # # # # #
 

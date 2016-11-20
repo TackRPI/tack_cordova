@@ -34,11 +34,13 @@ ALL USE CASES
   - [X] Register
 
 - [ ] Contacts
-  - [ ] List
-  - [ ] Show
+  - [X] List
+  - [X] Show
   - [ ] Add Manually
-  - [ ] Add Bluetooth
   - [ ] Send ShareProfile
+
+- [ ] Bluetooth
+  - [ ] Add via Bluetooth
 
 - [ ] UpdateDispatches
   - [ ] Service ONLY
@@ -52,3 +54,4 @@ Style Guide (maintained with .editorconfig)
 - 2-space indentation
 - single quotes for string constants, double quotes only when interpolated
 -
+
