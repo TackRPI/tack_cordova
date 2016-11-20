@@ -16,11 +16,11 @@ Use Cases
 
 ALL USE CASES
 
-- [ ] ContactMethod
+- [X] ContactMethod
   - [X] List
-  - [X] Create - needs flashes
-  - [X] Edit - needs flashes
-  - [ ] Destroy - Client working, server broken - needs flashes
+  - [X] Create (needs flashes)
+  - [X] Edit (needs flashes)
+  - [X] Destroy
 
 - [ ] ShareProfile
   - [ ] List
