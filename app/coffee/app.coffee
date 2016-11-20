@@ -2,11 +2,18 @@
 # App config
 require './config'
 
+# Application object
 App = require './cordova_app'
 
 # Top-level layout configuration
 # Pattern: singleton
 window.Layout = Layout = require('./views/appLayout')
+
+# Services
+# TODO - what are services? - Routeless, viewless background workers
+# We currently use a single service to manage sending SMS
+# and requesting requisite permissions
+require './services/sms'
 
 # Components
 # TODO - what are components? - routeless services with views
@@ -33,10 +40,12 @@ require './modules/update_dispatch/router'
 # Starts application
 $(document).on 'ready', =>
 
-  # TODO - move this into CordovaApplication, manages lifecycle
-  new App()
+  # Instantiates and initializes new App
+  app = new App()
+  app.initialize()
 
   # TODO - this is debug
-  Backbone.history.start()
-  Backbone.Radio.channel('header').trigger('reset')
-  Backbone.Radio.channel('sidebar').trigger('reset')
+  # This will be removed
+  # Backbone.history.start()
+  # Backbone.Radio.channel('header').trigger('reset')
+  # Backbone.Radio.channel('sidebar').trigger('reset')

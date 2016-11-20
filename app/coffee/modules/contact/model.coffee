@@ -12,11 +12,16 @@ class ContactModel extends Backbone.Model
 
   save: (params) =>
 
+    # Sets the attributes locally
+    @set(params)
+
+    # Success Callback
     onSuccess = (contact) =>
       console.log 'TODO - text shareProfile.toVCard() here'
       # Backbone.Radio.channel('sms').trigger('send:share_profile', @get('phone'))
       @trigger('sync', contact)
 
+    # Error Callback
     onError = (contactError) =>
       @trigger('error', contactError)
 

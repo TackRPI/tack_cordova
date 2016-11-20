@@ -14,7 +14,6 @@ class NewRoute extends require '../../base/route'
       @collection = values[1]
 
   render: (id) ->
-    console.log @collection
     @container.show new LayoutView({ model: @model, collection: @collection })
 
 # # # # #

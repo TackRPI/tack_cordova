@@ -26,6 +26,8 @@ class ContactAddView extends Marionette.LayoutView
   onRender: ->
     @showShareProfilePicker()
 
+  # TODO - validate phone.length & displayName.presence
+
   showShareProfilePicker: ->
     shareProfilePicker = new ShareProfilePicker({ collection: @collection })
     shareProfilePicker.on 'childview:selected', (view, selected) => @ui.shareProfileId.val(view.model.id)
@@ -41,9 +43,27 @@ class ContactAddView extends Marionette.LayoutView
 
   onSync: ->
     @flashSuccess()
-    window.location = '#contacts' # TODO - redirection, state service?
+
+    console.log @model.attributes
+
+    if @model.get('share_profile_id')
+      @sendSms().then (args) =>
+        @flashSuccess({ message: 'ShareProfile sent via SMS.'})
+        window.location = '#contacts' # TODO - redirection, state service?
+    else
+      window.location = '#contacts' # TODO - redirection, state service?
+
+  sendSms: =>
+    console.log 'SEND SHARE PROFILE'
+    console.log 'TO: ', attrs.phone
+
+    shareProfile = @collection.get(attrs.share_profile_id)
+    console.log shareProfile
+    console.log shareProfile.toMessage()
+    return Backbone.Radio.channel('sms').request('send', attrs.phone, shareProfile.toMessage())
 
   onSubmit: (e) ->
+    @disableSubmit()
     attrs = Backbone.Syphon.serialize(@)
     @model.save(attrs)
 

@@ -11,15 +11,15 @@ class ShareProfileModel extends Backbone.Model
   toMessage: =>
     cached = @get('cached')
 
-    message = "\nHello from Tack!\n"
+    # TODO - change message?
+    message = "Hello from Tack!\n"
 
+    # TODO - displayName
     for method in cached.methods
       message += method.label + ':'
       message += "\t"
       message += method.value
       message += "\n"
-
-    console.log message
 
     return message
 
