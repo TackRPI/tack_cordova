@@ -12,6 +12,7 @@
 # TODO - device feedback
 # plugins?.deviceFeedback.haptic()
 # plugins?.deviceFeedback.acoustic()
+
 # # # # #
 
 # TODO - this should handle the application lifecycle
@@ -23,25 +24,13 @@ class CordovaApp
 
   initialize: ->
     console.log 'initialize'
-    @bindEvents()
+    document.addEventListener 'deviceready', @onDeviceReady, false
     return
 
-  bindEvents: ->
-    console.log 'bindEvents'
-
-    # onDeviceReadyCallback = ->
-    #   console.log 'ON DEVICE READY!!'
-
-    # document.addEventListener 'deviceready', onDeviceReadyCallback, false
-
-  # onDeviceReady: ->
-  #   console.log 'Device ready - list contacts.'
-
-  #   # https://github.com/apache/cordova-plugin-contacts
-  #   # console.log navigator.contacts
-
-  # receivedEvent: (id) ->
-  #   console.log 'Received event: ', id
+  onDeviceReady: ->
+    Backbone.history.start()
+    Backbone.Radio.channel('header').trigger('reset')
+    Backbone.Radio.channel('sidebar').trigger('reset')
 
 # # # # #
 

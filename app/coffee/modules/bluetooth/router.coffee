@@ -1,3 +1,4 @@
+require './service'
 ConnectRoute = require './connect/route'
 
 # # # # #

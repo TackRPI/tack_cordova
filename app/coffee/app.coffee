@@ -2,6 +2,8 @@
 # App config
 require './config'
 
+App = require './cordova_app'
+
 # Top-level layout configuration
 # Pattern: singleton
 window.Layout = Layout = require('./views/appLayout')
@@ -32,6 +34,9 @@ require './modules/update_dispatch/router'
 $(document).on 'ready', =>
 
   # TODO - move this into CordovaApplication, manages lifecycle
-  Backbone.history.start()
-  Backbone.Radio.channel('header').trigger('reset')
-  Backbone.Radio.channel('sidebar').trigger('reset')
+  new App()
+
+  # TODO - this is debug
+  # Backbone.history.start()
+  # Backbone.Radio.channel('header').trigger('reset')
+  # Backbone.Radio.channel('sidebar').trigger('reset')
