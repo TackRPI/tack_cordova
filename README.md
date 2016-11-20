@@ -18,8 +18,8 @@ ALL USE CASES
 
 - [ ] ContactMethod
   - [X] List
-  - [ ] Create - needs flashes
-  - [ ] Edit - needs flashes
+  - [X] Create - needs flashes
+  - [X] Edit - needs flashes
   - [ ] Destroy - Client working, server broken - needs flashes
 
 - [ ] ShareProfile
@@ -29,9 +29,9 @@ ALL USE CASES
   - [ ] Destroy
 
 - [ ] Auth
-  - [ ] Register - needs flashes - server must authenticate presence of
-  - [ ] Login - needs flashes
-  - [ ] Logout - needs flashes
+  - [X] Login
+  - [X] Logout
+  - [ ] Register - server must authenticate presence of
   - [ ] ResetPassword? We can drop this feature.
 
 - [ ] Contacts

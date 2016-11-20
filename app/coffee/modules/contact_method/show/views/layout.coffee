@@ -4,13 +4,28 @@ class ContactMethodShowLayout extends Marionette.LayoutView
   className: 'container-fluid'
 
   behaviors:
+    ModelEvents: {}
+
     DestroyButton:
-      message: 'Are you sure you want to destroy this model Contact Method?'
+      message: 'Are you sure you want to destroy this Contact Method?'
+
+    Flashes:
+      success:
+        message:  'Contact Method destroyed.'
+      error:
+        message:  'Error destroying Contact Method.'
 
   serializeData: ->
     data = super
     data.json = JSON.stringify(@model.toJSON(), null, 2).split("\n")
     return data
+
+  onSync: ->
+    @flashSuccess()
+    window.location = '#contact_methods' # TODO - handle redirection in state service?
+
+  onError: ->
+    @flashError()
 
 # # # # #
 
