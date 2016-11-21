@@ -3,8 +3,10 @@ UpdateDispatchCollection = require './collection'
 
 # # # # #
 
+# UpdateDispatch service definition
+# Manages fetching JSON from the server, syncing contacts
+# and destroying UpdateDispatches after sync
 class UpdateDispatchService extends require '../base/service'
-
   radioChannel:         'update_dispatch'
   modelPrototype:       UpdateDispatchModel
   collectionPrototype:  UpdateDispatchCollection
@@ -14,6 +16,7 @@ class UpdateDispatchService extends require '../base/service'
     requests['update_dispatch sync'] = 'syncUpdates'
     return requests
 
+  # Syncs all UpdateDisaptches into native contacts manager
   syncUpdates: =>
     @collection()
     .then (updates) =>
@@ -21,6 +24,7 @@ class UpdateDispatchService extends require '../base/service'
         return update.syncToContacts()
       )
 
+  # Destroys all UpdateDisaptches after syncUpdates
   destroyUpdates: =>
     @collection()
     .then (updates) =>

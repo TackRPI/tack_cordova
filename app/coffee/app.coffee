@@ -5,12 +5,10 @@ require './config'
 # Application object
 App = require './cordova_app'
 
-# Top-level layout configuration
-# Pattern: singleton
+# Top-level layout configuration - singleton global variable
 window.Layout = Layout = require './views/appLayout'
 
-# Services
-# TODO - what are services? - Routeless, viewless background workers
+# Services are routeless, viewless background workers
 # We currently use a single service to manage sending SMS
 # and requesting requisite permissions
 require './services/sms'
@@ -38,10 +36,5 @@ require './modules/update_dispatch/router'
 
 # Starts application
 $(document).on 'ready', =>
-
-  # Instantiates and new App
-  app = new App()
-
-  # TODO - this is debug only
-  app.onDeviceReady()
+  app = new App() # Instantiates new App
 
