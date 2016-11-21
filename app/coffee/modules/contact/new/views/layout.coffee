@@ -56,7 +56,7 @@ class ContactAddView extends Marionette.LayoutView
       @redirect()
 
   redirect: ->
-    Backbone.Radio.channel('app').trigger('redirect', '#contacts')
+    Backbone.Radio.channel('app').trigger('redirect', '#')
 
   sendSms: =>
     # Gets ShareProfile by ID
