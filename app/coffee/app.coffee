@@ -32,6 +32,7 @@ require './modules/contact/router'
 require './modules/contact_method/router'
 require './modules/home/router'
 require './modules/share_profile/router'
+require './modules/share/router'
 require './modules/update_dispatch/router'
 # require './modules/device/router'
 
@@ -44,5 +45,5 @@ $(document).on 'ready', =>
   app = new App()
 
   # TODO - this is debug only
-  # app.onDeviceReady()
+  app.onDeviceReady()
 

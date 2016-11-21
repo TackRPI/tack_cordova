@@ -10,6 +10,10 @@
 
         a.list-group-item
           .row
+            .col-xs-12
+              .text-muted= update.label
+
+          .row
             .col-xs-12.json-viewer
               pre
                 for each in JSON.stringify(update.cache, null, 2).split("\n")

@@ -1,10 +1,6 @@
-
 ShareProfilePicker = require '../../../contact/new/views/shareProfilePicker'
 
 # # # # #
-
-class ContactAdder extends Backbone.Model
-  urlRoot: '/share'
 
 class BluetoothView extends Marionette.LayoutView
   template: require './templates/layout'
@@ -16,9 +12,9 @@ class BluetoothView extends Marionette.LayoutView
 
     Flashes:
       success:
-        message:  'Contact Method created.'
+        message:  'ShareProfile shared.'
       error:
-        message:  'Error creating Contact Method.'
+        message:  'Error sharing ShareProfile.'
 
   # # # # #
   # TODO - this is identical to the contact/new view
@@ -41,11 +37,9 @@ class BluetoothView extends Marionette.LayoutView
   #
   # # # # #
 
-
   onSubmit: (e) ->
     attrs = Backbone.Syphon.serialize(@)
-    console.log attrs
-    # @model.save(attrs)
+    @model.save(attrs)
 
   onRequest: ->
     @disableSubmit() # TODO - disable inputs as well?
@@ -56,8 +50,7 @@ class BluetoothView extends Marionette.LayoutView
 
   onSync: ->
     @flashSuccess()
-    Backbone.Radio.channel('app').trigger('redirect','#contact_methods')
-
+    Backbone.Radio.channel('app').trigger('redirect','#')
 
 # # # # #
 
