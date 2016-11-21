@@ -1,4 +1,5 @@
 
+# TODO - document
 # Provides updateAttrs method used by bindCheckboxes, bindInputs, bindRadios, bindSelects
 class BindBase extends Marionette.Behavior
 

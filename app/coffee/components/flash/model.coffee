@@ -1,4 +1,5 @@
 
+# TODO - document
 class FlashModel extends Backbone.Model
 
   defaults:

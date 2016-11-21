@@ -1,4 +1,5 @@
 
+# TODO - document
 class ModelEventsBehavior extends Marionette.Behavior
 
   modelEvents:

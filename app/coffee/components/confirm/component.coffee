@@ -2,6 +2,7 @@ ConfirmView = require './views/confirmView'
 
 # # # # #
 
+# TODO - document
 class ConfirmComponent extends require '../modal/abstract'
 
   radioRequests:

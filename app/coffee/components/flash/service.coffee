@@ -2,6 +2,7 @@ FlashCollection = require './collection'
 
 # # # # #
 
+# TODO - document
 class FlashService extends Backbone.Marionette.Service
 
   radioRequests:

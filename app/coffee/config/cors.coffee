@@ -1,4 +1,3 @@
-# NOTE: Development only.
 # Support for cross-domain requests in Backbone.js - usually verboten.
 # This allows the dev server at local.corticalmetrics.com:8080 to communicate with dev.corticalmetrics.com:3000 (cm-node-app)
 
@@ -22,6 +21,3 @@ Backbone.sync = (method, model, options = {}) =>
     options.xhrFields = { withCredentials: true }
 
   return proxiedSync(method, model, options)
-
-
-# ext. 276-6904

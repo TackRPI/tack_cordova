@@ -1,9 +1,11 @@
 
+# TODO - document
 _sendFlash = (type, obj) ->
   Backbone.Radio.channel('flash').trigger(type, obj)
 
 # # # # #
 
+# TODO - document
 class FlashesBehavior extends Marionette.Behavior
 
   initialize: (options={}) ->

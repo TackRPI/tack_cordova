@@ -1,4 +1,5 @@
 
+# TODO - document
 # BaseDecorator class definition
 class BaseDecorator
 

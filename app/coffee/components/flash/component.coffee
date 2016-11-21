@@ -3,6 +3,7 @@ FlashList = require './views/flashList'
 
 # # # # #
 
+# TODO - document
 class FlashService extends Backbone.Marionette.Service
 
   initialize: (options = {}) ->

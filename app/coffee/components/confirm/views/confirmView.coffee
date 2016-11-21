@@ -3,6 +3,7 @@ Marionette  = require 'backbone.marionette'
 
 # # # # #
 
+# TODO - document
 class ConfirmView extends Marionette.LayoutView
   className: 'modal-content'
   template: require './templates/confirm_view'

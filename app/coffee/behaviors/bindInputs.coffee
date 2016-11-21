@@ -1,4 +1,5 @@
 
+# TODO - document
 class BindInputs extends require './bindBase'
 
   events:

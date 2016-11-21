@@ -1,5 +1,6 @@
 LayoutView = require './views/layout'
 
+# TODO - document
 class HeaderService extends Marionette.Service
 
   initialize: ->

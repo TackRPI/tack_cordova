@@ -15,11 +15,6 @@ class ContactShowLayout extends Marionette.LayoutView
       error:
         message:  'Error destroying Share Profile.'
 
-  serializeData: ->
-    data = super
-    data.json = JSON.stringify(@model.toJSON(), null, 2).split("\n")
-    return data
-
   onSync: ->
     @flashSuccess()
     Backbone.Radio.channel('app').trigger('redirect','#share_profiles')
