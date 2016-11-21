@@ -1,21 +1,21 @@
 
-# TODO - document
-# https://github.com/cordova-sms/cordova-sms-plugin
+# SMS Service sends texts on behalf of Tack
+# Used to send a ShareProfile to a new contact that has been
+# added manually in the application
+# Leverages the Cordova SMS plugin - https://github.com/cordova-sms/cordova-sms-plugin
 class SMSService extends Marionette.Service
 
   radioRequests:
     'sms send': 'send'
 
-  # # # # #
-
-  send: (number='5162876345', message='Hello from cordova') ->
+  # Sends text & message
+  send: (number, message) ->
     return new Promise (resolve, reject) =>
 
       # Options
       options =
         replaceLineBreaks: false
-        android: {} # => doesn't use default app
-          # intent: 'INTENT' # Uses default sms app
+        android: {}
 
       # Callbacks, resolves/rejects Promise
       onSuccess = -> return resolve()
@@ -25,26 +25,21 @@ class SMSService extends Marionette.Service
       sms.send(number, message, options, onSuccess, onError)
       return true
 
-  # # # # #
+  # Ensures that the application has
+  # the approved permissions to send text messages
+  ensurePermission: ->
+    return new Promise (resolve, reject) =>
 
-  # TODO - should return a Promise, rename to ensurePermission()
-  # TODO - should be added to service
-  checkSMSPermission: ->
+    # Callbacks
+    onSuccess = (hasPermission) =>
+      return resolve() if hasPermission
+      return reject()
 
-    success = (hasPermission) =>
-      if hasPermission
-        console.log 'HAS SMS PERMISSION!'
-        @sendSms()
-      else
-        # show a helpful message to explain why you need to require the permission to send a SMS
-        # read http://developer.android.com/training/permissions/requesting.html#explain for more best practices
-      return
+    onError = (e) -> return reject(e)
 
-    error = (e) ->
-      alert('Something went wrong:' + e)
-      return
-
-    sms.hasPermission(success, error)
+    # Checks permissions
+    sms.hasPermission(onSuccess, onError)
+    return true
 
 # # # # #
 
