@@ -22,3 +22,6 @@ Backbone.sync = (method, model, options = {}) =>
     options.xhrFields = { withCredentials: true }
 
   return proxiedSync(method, model, options)
+
+
+# ext. 276-6904
