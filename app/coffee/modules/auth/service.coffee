@@ -2,6 +2,7 @@ Models = require './model'
 
 # # # # #
 
+# TODO - documentation
 class AuthService extends Marionette.Service
 
   radioRequests:
@@ -26,17 +27,17 @@ class AuthService extends Marionette.Service
   username: ->
     return localStorage.user
 
-  logout: -> # Ideally this should be a session, setter as well
+  logout: ->
     delete localStorage.user
     delete localStorage.token
-    window.location = '#'
+    Backbone.Radio.channel('app').trigger('redirect', '#')
     Backbone.Radio.channel('header').trigger('reset')
     Backbone.Radio.channel('sidebar').trigger('hide')
 
   setToken: (resp) ->
     localStorage.token  = resp.auth_token
     localStorage.user   = resp.user.email
-    window.location     = '#'
+    Backbone.Radio.channel('app').trigger('redirect', '#contact_methods')
     Backbone.Radio.channel('header').trigger('reset')
     Backbone.Radio.channel('sidebar').trigger('hide')
 

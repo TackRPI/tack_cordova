@@ -27,14 +27,12 @@ require './components/confirm/component'
 # TODO - what are modules? - they have routes & entities
 # they contain 'routes' which represent end-points in the app
 require './modules/auth/router'
-# require './modules/bluetooth/router'
 require './modules/contact/router'
 require './modules/contact_method/router'
 require './modules/home/router'
 require './modules/share_profile/router'
 require './modules/share/router'
 require './modules/update_dispatch/router'
-# require './modules/device/router'
 
 # # # # # #
 
