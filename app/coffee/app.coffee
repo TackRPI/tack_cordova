@@ -1,8 +1,8 @@
 
-# App config
+# Application configuration manifest
 require './config'
 
-# Application object
+# Application class definition
 App = require './cordova_app'
 
 # Top-level layout configuration - singleton global variable
@@ -13,17 +13,18 @@ window.Layout = Layout = require './views/appLayout'
 # and requesting requisite permissions
 require './services/sms'
 
-# Components
-# TODO - what are components? - routeless services with views
-# Generally accessible anywhere in the application
+# Components routeless services with views that are
+# accessible anywhere in the application
+# Used to manage the header, sidebar, flash, and confirm UI elements
 require './components/header/component'
 require './components/sidebar/component'
 require './components/flash/component'
 require './components/confirm/component'
 
 # Modules
-# TODO - what are modules? - they have routes & entities
-# they contain 'routes' which represent end-points in the app
+# Modules represent collections of endpoints in the application.
+# They have routes and entities (models and collections)
+# Each route represents an endpoint, or 'page' in the app.
 require './modules/auth/router'
 require './modules/contact/router'
 require './modules/contact_method/router'
@@ -34,7 +35,7 @@ require './modules/update_dispatch/router'
 
 # # # # # #
 
-# Starts application
+# Page has loaded, document is ready
 $(document).on 'ready', =>
   app = new App() # Instantiates new App
 
