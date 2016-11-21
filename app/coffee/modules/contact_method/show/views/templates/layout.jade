@@ -10,8 +10,10 @@
       a.btn.btn-danger-outline.w-50( data-click='destroy' )
         i.fa.fa-fw.fa-trash
 
-  //- TODO - replace JSON viewer
-  .col-xs-12.json-viewer.m-t-1
-    pre
-      for each in json
-        span= each
+.row.m-t-1
+  .col-xs-12
+    .card.card-block
+      .text-xs-left
+        i.fa.fa-fw.p-r-1(class=icon)
+        = label
+      small.text-xs-right.text-muted= value

@@ -27,7 +27,7 @@ class ContactMethodForm extends Marionette.LayoutView
     @model.save(attrs)
 
   onRequest: ->
-    @disableSubmit() # TODO - disable inputs as well?
+    @disableSubmit()
 
   onError: ->
     @flashError()

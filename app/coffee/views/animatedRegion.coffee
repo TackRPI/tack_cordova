@@ -83,7 +83,6 @@ class SwapView extends Marionette.LayoutView
     # # # # #
 
     # Animate the transition
-    # TODO - concurrent = false option (series swap)
     @parallelSwap(prevSlot, nextSlot, view, options)
 
   parallelSwap: (prevSlot, nextSlot, view, options) ->

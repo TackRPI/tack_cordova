@@ -1,6 +1,5 @@
 
 # # # # #
-# TODO - abstract picker into a separate file
 
 class ContactMethodPickerChild extends Marionette.LayoutView
   template: require './templates/contact_method_child'
@@ -37,8 +36,6 @@ class ContactMethodPicker extends Marionette.CollectionView
 
   childViewOptions: ->
     return { selected: @model.get('contact_method_ids') }
-
-# # # # #
 
 # # # # #
 
@@ -88,7 +85,7 @@ class ShareProfileForm extends Marionette.LayoutView
     @model.save(attrs)
 
   onRequest: ->
-    @disableSubmit() # TODO - disable inputs as well?
+    @disableSubmit()
 
   onError: ->
     @flashError()

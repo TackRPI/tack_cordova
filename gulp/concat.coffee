@@ -1,4 +1,4 @@
-# TODO - require common?
+# Import dependencies
 gulp        = require 'gulp'
 concat      = require 'gulp-concat'
 plumber     = require 'gulp-plumber'
@@ -28,6 +28,4 @@ gulp.task 'concat', ->
     .pipe concat('vendor.js')
     .pipe livereload()
 
-  # TODO - Env.
-  # stream.pipe uglify() if environment == 'production'
   stream.pipe gulp.dest paths.dest + 'js/'
