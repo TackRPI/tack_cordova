@@ -12,6 +12,8 @@ class ShareProfileModel extends Backbone.Model
   toMessage: =>
 
     message = "Hello from Tack!\n"
+    message += @get('created_by_name')
+    message += "\n"
 
     cached = @get('cached')
     for name, methods of cached
