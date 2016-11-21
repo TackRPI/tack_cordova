@@ -7,7 +7,7 @@ App = require './cordova_app'
 
 # Top-level layout configuration
 # Pattern: singleton
-window.Layout = Layout = require('./views/appLayout')
+window.Layout = Layout = require './views/appLayout'
 
 # Services
 # TODO - what are services? - Routeless, viewless background workers
@@ -43,5 +43,5 @@ $(document).on 'ready', =>
   app = new App()
 
   # TODO - this is debug only
-  # app.onDeviceReady()
+  app.onDeviceReady()
 

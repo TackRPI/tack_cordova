@@ -9,8 +9,6 @@ class ShareRouter extends require '../base/router'
     'share/add(/)': 'add'
 
   add: ->
-    console.log 'ADD?'
-    console.log @container
     new AddRoute({ container: @container })
 
 # # # # #
