@@ -19,7 +19,7 @@ class RegisterLayout extends Marionette.LayoutView
 
   validate: ->
     data = Backbone.Syphon.serialize(@)
-    return @enableSubmit() if data.email && data.password && data.password_confirmation && (data.password == data.password_confirmation) # TODO - break this out into a model validation
+    return @enableSubmit() if data.email && data.username && data.display_name && data.password && data.password_confirmation && (data.password == data.password_confirmation) # TODO - break this out into a model validation
     return @disableSubmit()
 
   onRender: ->

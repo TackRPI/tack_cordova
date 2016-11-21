@@ -43,5 +43,5 @@ $(document).on 'ready', =>
   app = new App()
 
   # TODO - this is debug only
-  app.onDeviceReady()
+  # app.onDeviceReady()
 

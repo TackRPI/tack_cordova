@@ -95,7 +95,7 @@ class ShareProfileForm extends Marionette.LayoutView
 
   onSync: ->
     @flashSuccess()
-    window.location = '#share_profiles'
+    Backbone.Radio.channel('app').trigger('redirect', '#share_profiles')
 
 # # # # #
 
