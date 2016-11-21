@@ -3,8 +3,11 @@ FlashList = require './views/flashList'
 
 # # # # #
 
-# TODO - document
-class FlashService extends Backbone.Marionette.Service
+# FlashService class definition
+# Defines a component to create and display flashes
+# in the app. Provides multiple interfaces in radioEvents
+# to handle common types of flashes (error, warning, success)
+class FlashComponent extends Backbone.Marionette.Service
 
   initialize: (options = {}) ->
     @container = options.container
@@ -41,4 +44,4 @@ class FlashService extends Backbone.Marionette.Service
 
 # # # # #
 
-module.exports = new FlashService({ container: window.Layout.flashRegion })
+module.exports = new FlashComponent({ container: window.Layout.flashRegion })

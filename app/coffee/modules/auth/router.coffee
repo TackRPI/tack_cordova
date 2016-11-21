@@ -6,7 +6,6 @@ LogoutRoute   = require './logout/route'
 
 # # # # #
 
-# TODO - document
 class AuthRouter extends BaseRouter
 
   routes:
