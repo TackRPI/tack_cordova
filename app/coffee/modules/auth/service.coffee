@@ -2,7 +2,11 @@ Models = require './model'
 
 # # # # #
 
-# TODO - documentation
+# AuthService class definition
+# The AuthService manages the JSON Web Token (JWT)
+# associated with the current user. It also
+# provides an interface to return the models used for
+# Authentication and Registration.
 class AuthService extends Marionette.Service
 
   radioRequests:

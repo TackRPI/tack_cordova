@@ -2,7 +2,8 @@
 # Super-class Authenticator
 class Authenticator extends Backbone.Model
 
-  # TODO - abstract this into AuthService?
+  # Adds listener to set authentication
+  # token on successful response from the server
   initialize: ->
     @on 'sync', (model, resp) => @setToken(resp)
 
