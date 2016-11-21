@@ -1,55 +1,23 @@
 # tack_cordova
 
+# # # # #
 
-https://github.com/don/BluetoothSerial/issues/50#issuecomment-66405396
+# TODO - directory structure breakdown
 
-Use Cases
-- [ ] AddViaBluetooth
-- [ ] AddViaManualInput
-- [ ] CreateShareProfile
-- [ ] CreateAccount
-- [ ] Authenticate
-- [ ] TwoWayEditing
-- [ ] ShareInfoToNewContact
+coffee/behaviors -
+coffee/components -
+coffee/config -
+coffee/modules -
+coffee/services -
+coffee/views - REPLACE WITH Application directory
+coffee/app.coffee - rename?
+coffee/cordova_app.coffee - move into Application directory
 
 # # # # #
 
-ALL USE CASES
-
-- [X] ContactMethod
-  - [X] List
-  - [X] Create
-  - [X] Edit
-  - [X] Destroy
-
-- [X] ShareProfile
-  - [X] List
-  - [X] Create
-  - [X] Edit
-  - [X] Destroy
-
-- [X] Auth
-  - [X] Login
-  - [X] Logout
-  - [X] Register
-
-- [ ] Contacts
-  - [X] List
-  - [X] Show
-  - [ ] Add Manually
-  - [ ] Send ShareProfile
-
-- [ ] Bluetooth
-  - [ ] Add via Bluetooth
-
-- [ ] UpdateDispatches
-  - [ ] Service ONLY
-  - [ ] Sync into Native Contacts
-
-# # # # #
+# TODO - abstract style guide into separate file
 
 Style Guide (maintained with .editorconfig)
 - 2-space indentation
 - single quotes for string constants, double quotes only when interpolated
 -
-

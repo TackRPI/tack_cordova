@@ -1,6 +1,8 @@
 
-# Application layout
-class LayoutView extends Marionette.LayoutView
+# ApplicationLayout class definition
+# Defines a Marionette.LayoutView to manage
+# top-level application regions
+class ApplicationLayout extends Marionette.LayoutView
   el: 'body'
 
   template: false
@@ -23,4 +25,4 @@ class LayoutView extends Marionette.LayoutView
 # # # # #
 
 # Exports instance
-module.exports = new LayoutView().render()
+module.exports = new ApplicationLayout().render()

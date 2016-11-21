@@ -1,12 +1,22 @@
+# This file defines a manifest for Tack's client application.
+# This includes configuration, Services, Components, Modules
+# and the Application singleton instance
+
+# # # # #
 
 # Application configuration manifest
 require './config'
 
+# # # # #
+#
 # Application class definition
+# TODO - this should be the singleton - use App.Layout
 App = require './cordova_app'
 
 # Top-level layout configuration - singleton global variable
 window.Layout = Layout = require './views/appLayout'
+#
+# # # # #
 
 # Services are routeless, viewless background workers
 # We currently use a single service to manage sending SMS
