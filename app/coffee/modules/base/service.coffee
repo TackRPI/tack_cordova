@@ -43,7 +43,9 @@ class BaseService extends Marionette.Service
     return new Promise (resolve, reject) =>
 
       # Return cached
-      return resolve(@cached) if @cached._synced?
+      if @cached._synced?
+        resolve(@cached)
+        return @cached.fetch() # Background fetch on cached
 
       # Instantiates @cached collection
       @cached.on 'sync', =>

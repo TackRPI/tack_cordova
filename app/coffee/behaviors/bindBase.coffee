@@ -1,6 +1,6 @@
 
-# TODO - document
-# Provides updateAttrs method used by bindCheckboxes, bindInputs, bindRadios, bindSelects
+# BaseBind class definition
+# A base behavior that provides updateAttrs method used by bindInputs behavior
 class BindBase extends Marionette.Behavior
 
   updateAttrs: (e) ->
