@@ -1,18 +1,30 @@
 
-# TODO - document
+# BaseService class definition
+# The BaseService class provides interfaces to fetch
+# models and collections from the server.
+# It is essentially an abstract factory pattern
+# that provides entities when subclassed with the appropriate
+# radioChannel, modelPrototype, and collectionPrototype values
 class BaseService extends Marionette.Service
 
+  # These class attributes are overwritten
+  # when subclassed
   radioChannel:         null
   modelPrototype:       null
   collectionPrototype:  null
 
+  # Defines radioRequests
   radioRequests: =>
     "#{ @radioChannel } model":      'model'
     "#{ @radioChannel } collection": 'collection'
 
+  # Caches a new instance of @collectionPrototype
+  # Ensures we only maintain one set of database records locally
   initialize: ->
     @cached = new @collectionPrototype?()
 
+  # Returns a new model, cached model,
+  # or fetches model from server
   model: (id) ->
     return new Promise (resolve,reject) =>
 
@@ -25,6 +37,8 @@ class BaseService extends Marionette.Service
         @collection().then () =>
           return resolve(@cached.get(id))
 
+  # Returns cached collection if synced,
+  # or fetches collection from server and returns
   collection: ->
     return new Promise (resolve, reject) =>
 

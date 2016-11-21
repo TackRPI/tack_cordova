@@ -1,8 +1,11 @@
-
 ShareProfilePicker = require './shareProfilePicker'
 
 # # # # #
 
+# ContactAddView class definition
+# The ContactAddView class manages user input collected
+# with the goal of adding a new contact and sending a ShareProfile
+# to them via SMS service.
 class ContactAddView extends Marionette.LayoutView
   template: require './templates/layout'
   className: 'container-fluid'
@@ -26,8 +29,8 @@ class ContactAddView extends Marionette.LayoutView
   onRender: ->
     @showShareProfilePicker()
 
-  # TODO - validate phone.length & displayName.presence
-
+  # The view makes use of an abstracted ShareProfilePicker class
+  # that handles selection of a ShareProfile to be serialized with the form's data.
   showShareProfilePicker: ->
     shareProfilePicker = new ShareProfilePicker({ collection: @collection })
     shareProfilePicker.on 'childview:selected', (view, selected) => @ui.shareProfileId.val(view.model.id)
@@ -35,7 +38,7 @@ class ContactAddView extends Marionette.LayoutView
     @shareProfileRegion.show shareProfilePicker
 
   onRequest: ->
-    @disableSubmit() # TODO - disable inputs as well?
+    @disableSubmit()
 
   onError: ->
     @flashError()
@@ -65,10 +68,10 @@ class ContactAddView extends Marionette.LayoutView
     message = shareProfile.toMessage()
     return Backbone.Radio.channel('sms').request('send', phone, message)
 
+  # TODO - validate phone.length & displayName.presence
   onSubmit: (e) ->
     @disableSubmit()
-    attrs = Backbone.Syphon.serialize(@)
-    @model.save(attrs)
+    @model.save(Backbone.Syphon.serialize(@))
 
 # # # # #
 
