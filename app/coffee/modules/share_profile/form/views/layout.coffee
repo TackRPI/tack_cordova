@@ -64,6 +64,7 @@ class ShareProfileForm extends Marionette.LayoutView
 
   onRender: ->
     Backbone.Syphon.deserialize( @, @model.attributes )
+    @$('select').val(@model.get('contact_method_ids'))
 
     # Constructs new contact method picker
     contactMethodPicker = new ContactMethodPicker({ model: @model, collection: @collection })
