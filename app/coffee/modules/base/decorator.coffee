@@ -1,6 +1,5 @@
 
-# AbstractDecorator class definition
-# TODO - document
+# BaseDecorator class definition
 class BaseDecorator
 
   # Decoration method
@@ -13,10 +12,6 @@ class BaseDecorator
 
     # Iterates over each function in prototype
     # Leverages Underscore.js _.functions()
-
-    # TODO - expand _.functions into a
-    # separate and independently scoped function
-    # this should be part of the documentation and process
     for func in _.functions(@prototype)
 
       # Skip constructor

@@ -10,7 +10,7 @@ paths = require './paths.coffee'
 gulp.task 'jade', ->
   gulp.src paths.src + 'index.jade'
     .pipe plumber()
-    # .pipe jade({ pretty: environment == 'development' }) # TODO - Env.
+    # .pipe jade({ pretty: environment == 'development' }) # TODO - integrate ENV
     .pipe jade({ pretty: true })
     .pipe gulp.dest paths.dest
     .pipe livereload()
