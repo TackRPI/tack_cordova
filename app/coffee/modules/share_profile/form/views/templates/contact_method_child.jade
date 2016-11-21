@@ -1,4 +1,5 @@
 //- TODO - abstract this into a separate file
+//- TODO - abstract this into a decorator!
 mixin contact_method_icon(type)
   if type == 'email'
     i.fa.fa-fw.fa-envelope-o
@@ -20,4 +21,4 @@ mixin contact_method_icon(type)
   .col-xs-8= label
 
   .col-xs-2
-    input(type='checkbox')
+    input(type='checkbox', checked=checked)

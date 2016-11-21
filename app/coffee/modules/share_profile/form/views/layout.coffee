@@ -1,17 +1,23 @@
 
 # # # # #
-# TODO - abstract picker into a separate file
 
 class ContactMethodPickerChild extends Marionette.LayoutView
   template: require './templates/contact_method_child'
-  className: 'list-group-item'
   tagName: 'li'
 
   events:
     'change input[type=checkbox]': 'onCheckboxChange'
 
-  # onRender: ->
-  #   console.log @options.selected
+  isSelected: ->
+    return _.contains(@options.selected, @model.id)
+
+  className: ->
+    css = 'list-group-item'
+    css += ' active' if @isSelected()
+    return css
+
+  templateHelpers: ->
+    { checked: @isSelected() }
 
   onCheckboxChange: (e) ->
     selected = @$(e.currentTarget).prop('checked')
@@ -33,8 +39,6 @@ class ContactMethodPicker extends Marionette.CollectionView
 
 # # # # #
 
-# # # # #
-
 class ShareProfileForm extends Marionette.LayoutView
   template: require './templates/layout'
   className: 'row'
@@ -42,6 +46,12 @@ class ShareProfileForm extends Marionette.LayoutView
   behaviors:
     ModelEvents: {}
     SubmitButton: {}
+
+    Flashes:
+      success:
+        message:  'Share Profile saved.'
+      error:
+        message:  'Error saving Share Profile.'
 
   regions:
     contactMethodsRegion: '[data-region=contact_methods]'
@@ -51,6 +61,7 @@ class ShareProfileForm extends Marionette.LayoutView
 
   onRender: ->
     Backbone.Syphon.deserialize( @, @model.attributes )
+    @$('select').val(@model.get('contact_method_ids'))
 
     # Constructs new contact method picker
     contactMethodPicker = new ContactMethodPicker({ model: @model, collection: @collection })
@@ -71,18 +82,18 @@ class ShareProfileForm extends Marionette.LayoutView
 
   onSubmit: (e) ->
     attrs = Backbone.Syphon.serialize(@)
-    console.log attrs
     @model.save(attrs)
 
   onRequest: ->
-    console.log 'ON REQUEST'
+    @disableSubmit()
 
   onError: ->
-    console.log 'ON ERROR'
+    @flashError()
+    @enableSubmit()
 
   onSync: ->
-    console.log 'ON SYNC'
-    window.location = '#share_profiles'
+    @flashSuccess()
+    Backbone.Radio.channel('app').trigger('redirect', '#share_profiles')
 
 # # # # #
 

@@ -1,4 +1,4 @@
-# App configuration
+# App configuration manifest
 require './window'
 require './jwt'
 require './cors'

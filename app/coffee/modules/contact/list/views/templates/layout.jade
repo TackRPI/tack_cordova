@@ -1,20 +1,23 @@
 .row
   .col-xs-12
-    h4 Contacts
+    h4 Contact List
 
   .col-xs-12
-    a.btn.btn-primary-outline.w-100( href='#contacts/add' )
+    a.btn.btn-primary-outline.w-100( href='#contacts/add_manual' )
       i.fa.fa-fw.fa-plus
-      | Add
 
-  .col-xs-12.m-t-1
-
+.row.m-t-1
+  .col-xs-12
     ul.list-group
-      each update in items
+      each contact in items
+        if contact.displayName
+          a.list-group-item( href='#contacts/' + contact.id )
+            .row
+              if contact.photos[0]
+                .col-xs-2
+                  img.img-circle( src=contact.photos[0].value, style='width:2rem;' )
+              else
+                .col-xs-2
+                  img.img-circle( src='img/placeholder.svg' style='width:2rem;')
 
-        a.list-group-item( href='#updates/' + update.id )
-          .row
-            .col-xs-12.json-viewer
-              pre
-                for each in JSON.stringify(update.cache, null, 2).split("\n")
-                  span= each
+              .col-xs-10= contact.displayName

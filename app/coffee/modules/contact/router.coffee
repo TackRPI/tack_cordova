@@ -1,27 +1,26 @@
 Service = require './service'
 ListRoute = require './list/route'
-AddRoute = require './add/route'
 ShowRoute = require './show/route'
+NewRoute  = require './new/route'
 
 # # # # #
 
-class ContactRouter extends Backbone.Routing.Router
+class ContactRouter extends require '../base/router'
 
   routes:
-    'contacts(/)':          'list'
-    'contacts/add(/)':      'add'
-    'updates/:id(/)':      'show'
-
+    'contacts(/)':      'list'
+    'contacts/new(/)':  'new'
+    'contacts/:id(/)':  'show'
 
   list: ->
-    new ListRoute({ container: window.Container })
+    new ListRoute({ container: @container })
 
-  add: ->
-    new AddRoute({ container: window.Container })
+  new: ->
+    new NewRoute({ container: @container })
 
   show: (id) ->
-    new ShowRoute({ container: window.Container, id: id })
+    new ShowRoute({ container: @container, id: id })
 
 # # # # #
 
-module.exports = new ContactRouter()
+module.exports = new ContactRouter({ container: window.Layout.mainRegion })

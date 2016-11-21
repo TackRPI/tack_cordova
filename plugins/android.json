@@ -21,6 +21,12 @@
         },
         "cordova-plugin-velda-devicefeedback": {
             "PACKAGE_NAME": "com.example.tack"
+        },
+        "cordova-plugin-bluetoothle": {
+            "PACKAGE_NAME": "com.example.tack"
+        },
+        "cordova-sms-plugin": {
+            "PACKAGE_NAME": "com.example.tack"
         }
     },
     "dependent_plugins": {}

@@ -1,0 +1,14 @@
+.row
+  .col-xs-12
+    h4 Update Dispatches
+
+.row.m-t-1
+  .col-xs-12
+
+    ul.list-group
+      each update in items
+
+        a.list-group-item
+          .row
+            .col-xs-12
+              .text-muted= update.label

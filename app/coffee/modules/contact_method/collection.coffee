@@ -1,7 +1,7 @@
 
 class ContactMethodCollection extends Backbone.Collection
   model: require './model'
-  url: '/contact_methods'
+  url: '/contact_methods/'
 
 # # # # #
 

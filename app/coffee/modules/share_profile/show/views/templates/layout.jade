@@ -2,9 +2,36 @@
   .col-xs-12
     h4= label
 
-  .col-xs-12.m-t-1
+  .col-xs-12
+    .btn-group.w-100
+      a.btn.btn-success-outline.w-50( href='#share_profiles/' + _id + '/edit' )
+        i.fa.fa-fw.fa-pencil
+
+      a.btn.btn-danger-outline.w-50( data-click='destroy' )
+        i.fa.fa-fw.fa-trash
+
+.row.m-t-1
+
+  //- TODO - these should probably be part of a Marionette.CollectionView
+  //- TODO - clean this up
+  .col-xs-12
     ul.list-group
-      for each in cached.methods
+      for each in cached['phone']
+        li.list-group-item
+          .text-xs-left= each.label
+          small.text-xs-right.text-muted= each.value
+
+      for each in cached['email']
+        li.list-group-item
+          .text-xs-left= each.label
+          small.text-xs-right.text-muted= each.value
+
+      for each in cached['social']
+        li.list-group-item
+          .text-xs-left= each.label
+          small.text-xs-right.text-muted= each.value
+
+      for each in cached['address']
         li.list-group-item
           .text-xs-left= each.label
           small.text-xs-right.text-muted= each.value

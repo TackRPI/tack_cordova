@@ -2,14 +2,10 @@
 # Super-class Authenticator
 class Authenticator extends Backbone.Model
 
-  # TODO - abstract into AuthService?
+  # Adds listener to set authentication
+  # token on successful response from the server
   initialize: ->
     @on 'sync', (model, resp) => @setToken(resp)
-
-    @on 'error', (model, resp) ->
-      console.log 'AUTHENTICATOR ERROR'
-      console.log model
-      console.log resp
 
   setToken: (resp) ->
     Backbone.Radio.channel('auth').request('set:token', resp)
@@ -31,17 +27,9 @@ class UserRegistrar extends Authenticator
     password: ''
     password_confirmation: ''
 
-# Password Reset Model
-class PasswordResetter extends Backbone.Model
-  urlRoot: '/auth/reset'
-
-  defaults:
-    email:  ''
-
 # # # # #
 
 # Exports all models
 module.exports =
   Authenticator:    UserAuthenticator
   Registrar:        UserRegistrar
-  PasswordResetter: PasswordResetter

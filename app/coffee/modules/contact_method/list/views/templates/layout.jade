@@ -1,20 +1,3 @@
-
-mixin emailItem(method)
-  .text-xs-left= method.label
-  small.text-xs-right.text-muted= method.email
-
-mixin phoneItem(method)
-  .text-xs-left= method.label
-  small.text-xs-right.text-muted= method.phone
-
-mixin addressItem(method)
-  .text-xs-left= method.label
-  small.text-xs-right.text-muted= method.formatted
-
-mixin socialItem(method)
-  .text-xs-left= method.label
-  small.text-xs-right.text-muted= method.username
-
 .row
   .col-xs-12
     h4 Contact Methods
@@ -23,25 +6,4 @@ mixin socialItem(method)
     a.btn.btn-secondary.w-100( href='#contact_methods/new' )
       i.fa.fa-fw.fa-plus
 
-  .col-xs-12.m-t-1
-    ul.list-group
-
-      if items.length == 0
-        li.list-group-item.list-group-item-warning.text-center
-          | No Contact Methods
-
-      each method in items
-
-        a.list-group-item( href='#contact_methods/' + method._id )
-
-          if method.type == 'email'
-            +emailItem(method)
-
-          if method.type == 'phone'
-            +phoneItem(method)
-
-          if method.type == 'address'
-            +addressItem(method)
-
-          if method.type == 'social'
-            +socialItem(method)
+  .col-xs-12.m-t-1(data-region='list')

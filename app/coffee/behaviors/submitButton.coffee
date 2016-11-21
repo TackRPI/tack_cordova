@@ -1,4 +1,5 @@
 
+# TODO - document
 class SubmitButtonBehavior extends Marionette.Behavior
 
   ui:

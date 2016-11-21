@@ -3,35 +3,49 @@ ContactCollection = require './collection'
 
 # # # # #
 
-class ContactService extends Marionette.Service
+class ContactService extends require '../base/service'
+  radioChannel:         'contact'
+  modelPrototype:       ContactModel
+  collectionPrototype:  ContactCollection
 
-  radioRequests:
-    'contact model':      'model'
-    'contact collection': 'collection'
+  radioRequests: =>
+    requests = super
+    requests['contact new'] = 'newNative'
+    return requests
 
-  model: (id) ->
-    return new Promise (resolve,reject) =>
+  newNative: (params) ->
 
-      # Return from @cached
-      if @cached
-        return resolve(@cached.get(id))
-      else
-        @collection().then () =>
-          return resolve(@cached.get(id))
+    # Create new Native Contact
+    contact = navigator.contacts.create()
+    contact.displayName = params.displayName
+    contact.nickname    = params.displayName
+
+    # Phone Numbers
+    phoneNumbers = []
+    phoneNumbers[0] = new ContactField('cell', params.phone, false)
+    contact.phoneNumbers = phoneNumbers
+
+    return contact
 
   collection: ->
     return new Promise (resolve,reject) =>
 
       # Return cached
-      return resolve(@cached) if @cached
+      return resolve(@cached) if @cached._synced?
 
-      # Instantiates @cached collection
-      # TODO - error here if first fetch fails!
-      @cached = new ContactCollection()
-      @cached.on 'sync', => resolve(@cached) # Success callback
-      @cached.fetch()
+      # Success callback
+      onFindSuccess = (nativeContacts=[]) =>
+        @cached.reset(nativeContacts, { parse: true })
+        @cached._synced = true
+        # window.contacts = contacts = new ContactCollection(nativeContacts, { parse: true })
+        return resolve(@cached)
 
-      return
+      # Error callback
+      onFindError = () ->
+        return reject()
+
+      # Native contacts fetch
+      return navigator.contacts.find(['displayName'], onFindSuccess, onFindError)
 
 # # # # #
 

@@ -1,31 +1,41 @@
 
-# App config
+# Application configuration manifest
 require './config'
 
-# Top-level layout configuration
-AppLayout = require('./views/appLayout')
-AppLayout.render()
-window.AppLayout = AppLayout
-window.Container = AppLayout.main
+# Application class definition
+App = require './cordova_app'
 
-# Components
-HeaderComponent = require './modules/header/component'
+# Top-level layout configuration - singleton global variable
+window.Layout = Layout = require './views/appLayout'
+
+# Services are routeless, viewless background workers
+# We currently use a single service to manage sending SMS
+# and requesting requisite permissions
+require './services/sms'
+
+# Components routeless services with views that are
+# accessible anywhere in the application
+# Used to manage the header, sidebar, flash, and confirm UI elements
+require './components/header/component'
+require './components/sidebar/component'
+require './components/flash/component'
+require './components/confirm/component'
 
 # Modules
-HomeModule = require './modules/home/router'
-ContactModule = require './modules/contact/router'
-ContactMethodModule = require './modules/contact_method/router'
-ShareProfileModule = require './modules/share_profile/router'
-AuthModule = require './modules/auth/router'
-# DeviceModule = require './modules/device/router'
+# Modules represent collections of endpoints in the application.
+# They have routes and entities (models and collections)
+# Each route represents an endpoint, or 'page' in the app.
+require './modules/auth/router'
+require './modules/contact/router'
+require './modules/contact_method/router'
+require './modules/home/router'
+require './modules/share_profile/router'
+require './modules/share/router'
+require './modules/update_dispatch/router'
 
 # # # # # #
 
-# Starts application
+# Page has loaded, document is ready
 $(document).on 'ready', =>
-  console.log 'Document Ready'
+  app = new App() # Instantiates new App
 
-  # TODO - this should be moved into the Cordova Application
-  # This should be part of the application lifecycle
-  Backbone.history.start()
-  Backbone.Radio.channel('header').trigger('reset')

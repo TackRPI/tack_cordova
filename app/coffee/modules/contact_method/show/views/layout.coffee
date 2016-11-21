@@ -3,12 +3,24 @@ class ContactMethodShowLayout extends Marionette.LayoutView
   template: require './templates/layout'
   className: 'container-fluid'
 
-  # TODO - destroy contactMethod
+  behaviors:
+    ModelEvents: {}
 
-  serializeData: ->
-    data = super
-    data.json = JSON.stringify(@model.toJSON(), null, 2).split("\n")
-    return data
+    DestroyButton:
+      message: 'Are you sure you want to destroy this Contact Method?'
+
+    Flashes:
+      success:
+        message:  'Contact Method destroyed.'
+      error:
+        message:  'Error destroying Contact Method.'
+
+  onSync: ->
+    @flashSuccess()
+    Backbone.Radio.channel('app').trigger('redirect','#contact_methods')
+
+  onError: ->
+    @flashError()
 
 # # # # #
 

@@ -1,47 +1,39 @@
-# # # # #
 
-# Cordova app & configuration
-# CordovaApp = require './cordova_app'
-# window.SmsWorker = SmsWorker = require './sms'
+# CordovaApp class definition
+# Manages lifecycle and bootstraps application
+# mobile device on which the app is running
+class CordovaApp extends Marionette.Service
 
-# Cordova plugins
-#   Contacts    https://github.com/apache/cordova-plugin-contacts
-#   SMS         https://github.com/cordova-sms/cordova-sms-plugin
-#   BLE         https://github.com/don/cordova-plugin-ble-central
-
-# TODO - device feedback
-# plugins?.deviceFeedback.haptic()
-# plugins?.deviceFeedback.acoustic()
-# # # # #
-
-# TODO - this should handle the application lifecycle
-class CordovaApp
-
-  constructor: ->
-    console.log 'constructor'
-    @initialize()
+  radioEvents:
+    'app redirect': 'redirectTo'
 
   initialize: ->
-    console.log 'initialize'
-    @bindEvents()
-    return
+    # Listener for 'deviceready' event
+    # fired when the Cordova framework has successfully initialized
+    document.addEventListener 'deviceready', @onDeviceReady, false
 
-  bindEvents: ->
-    console.log 'bindEvents'
+    # Starts application without 'deviceready' event
+    # Used while debugging the application in-browser
+    # window.Contact is only defined when the app is running
+    # on a mobile device
+    @onDeviceReady() unless window.Contact
+    return true
 
-    # onDeviceReadyCallback = ->
-    #   console.log 'ON DEVICE READY!!'
+  # Starts the application
+  # Starts Backbone.history (enables routing)
+  # And initializes header and sidebar modules
+  onDeviceReady: ->
+    Backbone.history.start()
+    Backbone.Radio.channel('header').trigger('reset')
+    Backbone.Radio.channel('sidebar').trigger('reset')
+    Backbone.Radio.channel('app').trigger('start')
 
-    # document.addEventListener 'deviceready', onDeviceReadyCallback, false
-
-  # onDeviceReady: ->
-  #   console.log 'Device ready - list contacts.'
-
-  #   # https://github.com/apache/cordova-plugin-contacts
-  #   # console.log navigator.contacts
-
-  # receivedEvent: (id) ->
-  #   console.log 'Received event: ', id
+  # Redirection interface
+  # Used accross the application to redirect
+  # to specific views after specific actions
+  redirectTo: (route) ->
+    window.location = route
+    return true
 
 # # # # #
 

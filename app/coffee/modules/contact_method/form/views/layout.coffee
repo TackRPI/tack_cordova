@@ -13,6 +13,12 @@ class ContactMethodForm extends Marionette.LayoutView
     ModelEvents: {}
     SubmitButton: {}
 
+    Flashes:
+      success:
+        message:  'Contact Method created.'
+      error:
+        message:  'Error creating Contact Method.'
+
   onRender: ->
     Backbone.Syphon.deserialize( @, @model.attributes )
 
@@ -21,14 +27,15 @@ class ContactMethodForm extends Marionette.LayoutView
     @model.save(attrs)
 
   onRequest: ->
-    console.log 'ON REQUEST'
+    @disableSubmit()
 
   onError: ->
-    console.log 'ON ERROR'
+    @flashError()
+    @enableSubmit()
 
   onSync: ->
-    console.log 'ON SYNC'
-    window.location = '#contact_methods'
+    @flashSuccess()
+    Backbone.Radio.channel('app').trigger('redirect','#contact_methods')
 
 # # # # #
 
