@@ -8,6 +8,7 @@ class CordovaApp extends Marionette.Service
     'app redirect': 'redirectTo'
 
   initialize: ->
+
     # Listener for 'deviceready' event
     # fired when the Cordova framework has successfully initialized
     document.addEventListener 'deviceready', @onDeviceReady, false

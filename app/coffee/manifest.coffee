@@ -7,16 +7,9 @@
 # Application configuration manifest
 require './config'
 
-# # # # #
-#
 # Application class definition
-# TODO - this should be the singleton - use App.Layout
 App = require './app'
-
-# Top-level layout configuration - singleton global variable
-window.Layout = Layout = require './views/appLayout'
-#
-# # # # #
+window.Layout = require './modules/core/views/layout'
 
 # Services are routeless, viewless background workers
 # We currently use a single service to manage sending SMS
@@ -47,5 +40,5 @@ require './modules/update_dispatch/router'
 
 # Page has loaded, document is ready
 $(document).on 'ready', =>
-  app = new App() # Instantiates new App
+  window.App = new App() # Instantiates new App
 

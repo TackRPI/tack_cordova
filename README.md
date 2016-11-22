@@ -12,13 +12,21 @@
 - **package.json** --- dependency management
 - **config.xml** --- Cordova configuration
 
-###### App
-- coffee/
-  - behaviors
-    - behavior class files
-    - manifest
+###### app/
 
-  - components/
+- img/ - images (only stores logo.png)
+- sass/ --- SASS & style dependencies
+- coffee/
+  - behaviors/ --- Behaviors
+  - components/ --- Components
+  - config/ --- Configuration files
+  - modules/ --- Modules
+  - services/ --- Services
+  - manifest.coffee --- manifest
+  - app.coffee --- Application class
+
+###### app/coffee
+
     - component_name/
       - component controller
       - views/
@@ -30,29 +38,11 @@
     - configuration files
     - manifest
 
-  - modules -
-  - services -
-  - views - REPLACE WITH Application directory
-  - app.coffee - rename?
-  - cordova_app.coffee - move into Application directory
-
-- img/ - images used by the application (only stores logo.png)
-
-- partials/ - REMOVE - move form_helpers into base module
-
-- sass/ --- CSS & configuration
-
 # # # # #
 
 # TODO - abstract style guide into separate file
 
-
-
-
-
 #Style Guide (maintained with .editorconfig)
 - 2-space indentation
-
-
 - single quotes for string constants, double quotes only when interpolated
 -
