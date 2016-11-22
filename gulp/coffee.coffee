@@ -9,7 +9,7 @@ livereload  = require 'gulp-livereload'
 paths = require './paths.coffee'
 
 gulp.task 'coffee', ->
-  stream = gulp.src(paths.src + 'coffee/app.coffee', { read: false })
+  stream = gulp.src(paths.src + 'coffee/manifest.coffee', { read: false })
     .pipe plumber()
     .pipe browserify
       debug:      true

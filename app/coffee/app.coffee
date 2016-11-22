@@ -1,51 +1,40 @@
-# This file defines a manifest for Tack's client application.
-# This includes configuration, Services, Components, Modules
-# and the Application singleton instance
+
+# CordovaApp class definition
+# Manages lifecycle and bootstraps application
+# mobile device on which the app is running
+class CordovaApp extends Marionette.Service
+
+  radioEvents:
+    'app redirect': 'redirectTo'
+
+  initialize: ->
+    # Listener for 'deviceready' event
+    # fired when the Cordova framework has successfully initialized
+    document.addEventListener 'deviceready', @onDeviceReady, false
+
+    # Starts application without 'deviceready' event
+    # Used while debugging the application in-browser
+    # window.Contact is only defined when the app is running
+    # on a mobile device
+    @onDeviceReady() unless window.Contact
+    return true
+
+  # Starts the application
+  # Starts Backbone.history (enables routing)
+  # And initializes header and sidebar modules
+  onDeviceReady: ->
+    Backbone.history.start()
+    Backbone.Radio.channel('header').trigger('reset')
+    Backbone.Radio.channel('sidebar').trigger('reset')
+    Backbone.Radio.channel('app').trigger('start')
+
+  # Redirection interface
+  # Used accross the application to redirect
+  # to specific views after specific actions
+  redirectTo: (route) ->
+    window.location = route
+    return true
 
 # # # # #
 
-# Application configuration manifest
-require './config'
-
-# # # # #
-#
-# Application class definition
-# TODO - this should be the singleton - use App.Layout
-App = require './cordova_app'
-
-# Top-level layout configuration - singleton global variable
-window.Layout = Layout = require './views/appLayout'
-#
-# # # # #
-
-# Services are routeless, viewless background workers
-# We currently use a single service to manage sending SMS
-# and requesting requisite permissions
-require './services/sms'
-
-# Components routeless services with views that are
-# accessible anywhere in the application
-# Used to manage the header, sidebar, flash, and confirm UI elements
-require './components/header/component'
-require './components/sidebar/component'
-require './components/flash/component'
-require './components/confirm/component'
-
-# Modules
-# Modules represent collections of endpoints in the application.
-# They have routes and entities (models and collections)
-# Each route represents an endpoint, or 'page' in the app.
-require './modules/auth/router'
-require './modules/contact/router'
-require './modules/contact_method/router'
-require './modules/home/router'
-require './modules/share_profile/router'
-require './modules/share/router'
-require './modules/update_dispatch/router'
-
-# # # # # #
-
-# Page has loaded, document is ready
-$(document).on 'ready', =>
-  app = new App() # Instantiates new App
-
+module.exports = CordovaApp

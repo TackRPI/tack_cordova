@@ -1,4 +1,4 @@
-LogoutView  = require './view'
+LogoutView  = require './views/layout'
 
 # # # # #
 

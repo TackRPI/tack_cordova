@@ -2,7 +2,6 @@ gulp = require 'gulp'
 paths = require './gulp/paths.coffee'
 webserver = require 'gulp-webserver'
 
-
 # Import tasks
 require './gulp/coffee.coffee'
 require './gulp/copy.coffee'
