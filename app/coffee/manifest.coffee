@@ -9,14 +9,14 @@ require './config'
 
 # Application class definition
 App = require './app'
-window.Layout = require './modules/core/views/layout'
+window.Layout = require './application/views/layout'
 
 # Services are routeless, viewless background workers
 # We currently use a single service to manage sending SMS
 # and requesting requisite permissions
 require './services/sms'
 
-# Components routeless services with views that are
+# Components are routeless services with views that are
 # accessible anywhere in the application
 # Used to manage the header, sidebar, flash, and confirm UI elements
 require './components/header/component'
