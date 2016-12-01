@@ -39,6 +39,7 @@ class BluetoothView extends Marionette.LayoutView
 
   onSubmit: (e) ->
     attrs = Backbone.Syphon.serialize(@)
+    attrs.username = attrs.username.toLowerCase() # TODO - more elegant solution to this?
     @model.save(attrs)
 
   onRequest: ->

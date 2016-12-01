@@ -45,7 +45,7 @@ class UpdateDispatchModel extends Backbone.Model
 
       # Saves
       onSuccess = (contact) =>
-        Backbone.Radio.channel('flash').trigger('success', { message: 'Contact Synced.' })
+        # Backbone.Radio.channel('flash').trigger('success', { message: 'Contact Synced.' })
         return resolve()
 
       onError = (contactError) =>

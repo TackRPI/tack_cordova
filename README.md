@@ -1,13 +1,13 @@
 # Tack Client Application
+## Directory Structure Breakdown
 
-#### Directory Structure Breakdown
+###### Note: some auto-generated top-level directories have been ommitted for brevity or excluded from the .zip for size considerations.
 
 ##### Top Level
 - **app/** --- client application
 - **gulp/** --- build tasks
 - **platforms/** --- Cordova platforms
 - **plugins/** --- Cordova plugins
-- **www/** --- build destination
 - **Gulpfile.coffee** --- build configuration
 - **package.json** --- dependency management
 - **config.xml** --- Cordova configuration
