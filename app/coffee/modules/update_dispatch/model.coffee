@@ -3,6 +3,20 @@
 # Manages creation of syncing to native contacts
 class UpdateDispatchModel extends Backbone.Model
   urlRoot: '/update_dispatches'
+  idAttribute: '_id'
+
+  # Promise-ified version of Backbone.Model.destroy
+  # Enables iteration of asynchronous deletion methods
+  # on multiple models, throttles server calls
+  destroyPromise: ->
+    return new Promise (resolve, reject) =>
+      # Invokes destroy method
+      @destroy({
+        success: -> return resolve()
+        error: ->   return reject()
+      })
+
+      return true
 
   syncToContacts: ->
     return new Promise (resolve, reject) =>

@@ -17,7 +17,10 @@ class CordovaApp extends Marionette.Service
     # Used while debugging the application in-browser
     # window.Contact is only defined when the app is running
     # on a mobile device
-    @onDeviceReady() unless window.Contact
+    setTimeout( =>
+      @onDeviceReady() unless window.Contact
+    , 1000)
+
     return true
 
   # Starts the application
