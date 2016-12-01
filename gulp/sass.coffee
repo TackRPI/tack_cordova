@@ -10,7 +10,7 @@ paths = require './paths.coffee'
 
 # Compile SASS / SCSS
 gulp.task 'sass', =>
-  gulp.src paths.src + 'stylesheets/app.sass'
+  gulp.src paths.src + 'sass/app.sass'
     .pipe plumber()
     .pipe sass()
     .pipe minifyCss({ keepSpecialComments: 0 })

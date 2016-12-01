@@ -4,11 +4,9 @@
 
 .row.m-t-1
   .col-xs-12
+    a.btn.btn-primary-outline.w-100( data-click='sync' )
+      i.fa.fa-fw.fa-refresh
+      | SYNC
 
-    ul.list-group
-      each update in items
-
-        a.list-group-item
-          .row
-            .col-xs-12
-              .text-muted= update.label
+.row.m-t-1
+  .col-xs-12(data-region='list')

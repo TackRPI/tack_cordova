@@ -2,7 +2,6 @@ gulp = require 'gulp'
 paths = require './gulp/paths.coffee'
 webserver = require 'gulp-webserver'
 
-
 # Import tasks
 require './gulp/coffee.coffee'
 require './gulp/copy.coffee'
@@ -17,17 +16,11 @@ gulp.task 'webserver', ->
       port: 8080
       open: true
 
-# Watch & Live Reload
+# Watch
 gulp.task 'watch', ->
-  # livereload.listen
-  #   host: 'localhost'
-  #   port: 4000
-  #   start: true
-  #   reloadPage: paths.dest + 'index.html'
-
   gulp.watch paths.src + 'coffee/**', ['coffee']
   gulp.watch paths.src + 'coffee/**/*.jade', ['coffee']
-  gulp.watch paths.src + 'stylesheets/**/*.sass', ['sass']
+  gulp.watch paths.src + 'sass/**/*.sass', ['sass']
   gulp.watch paths.src + '**/*.jade', ['jade']
 
 # Task declarations

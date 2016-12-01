@@ -1,41 +1,44 @@
 
-# Application configuration manifest
-require './config'
+# CordovaApp class definition
+# Manages lifecycle and bootstraps application
+# mobile device on which the app is running
+class CordovaApp extends Marionette.Service
 
-# Application class definition
-App = require './cordova_app'
+  radioEvents:
+    'app redirect': 'redirectTo'
 
-# Top-level layout configuration - singleton global variable
-window.Layout = Layout = require './views/appLayout'
+  initialize: ->
 
-# Services are routeless, viewless background workers
-# We currently use a single service to manage sending SMS
-# and requesting requisite permissions
-require './services/sms'
+    # Listener for 'deviceready' event
+    # fired when the Cordova framework has successfully initialized
+    document.addEventListener 'deviceready', @onDeviceReady, false
 
-# Components routeless services with views that are
-# accessible anywhere in the application
-# Used to manage the header, sidebar, flash, and confirm UI elements
-require './components/header/component'
-require './components/sidebar/component'
-require './components/flash/component'
-require './components/confirm/component'
+    # Starts application without 'deviceready' event
+    # Used while debugging the application in-browser
+    # window.Contact is only defined when the app is running
+    # on a mobile device
+    setTimeout( =>
+      @onDeviceReady() unless window.Contact
+    , 1000)
 
-# Modules
-# Modules represent collections of endpoints in the application.
-# They have routes and entities (models and collections)
-# Each route represents an endpoint, or 'page' in the app.
-require './modules/auth/router'
-require './modules/contact/router'
-require './modules/contact_method/router'
-require './modules/home/router'
-require './modules/share_profile/router'
-require './modules/share/router'
-require './modules/update_dispatch/router'
+    return true
 
-# # # # # #
+  # Starts the application
+  # Starts Backbone.history (enables routing)
+  # And initializes header and sidebar modules
+  onDeviceReady: ->
+    Backbone.history.start()
+    Backbone.Radio.channel('header').trigger('reset')
+    Backbone.Radio.channel('sidebar').trigger('reset')
+    Backbone.Radio.channel('app').trigger('start')
 
-# Page has loaded, document is ready
-$(document).on 'ready', =>
-  app = new App() # Instantiates new App
+  # Redirection interface
+  # Used accross the application to redirect
+  # to specific views after specific actions
+  redirectTo: (route) ->
+    window.location = route
+    return true
 
+# # # # #
+
+module.exports = CordovaApp

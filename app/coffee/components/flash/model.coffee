@@ -1,5 +1,7 @@
 
-# TODO - document
+# FlashModel class definition
+# Defines a basic Backbone.Model to manage views
+# displayed in the FlashComponent
 class FlashModel extends Backbone.Model
 
   defaults:

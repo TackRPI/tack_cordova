@@ -1,6 +1,6 @@
 
 class LogoutLayout extends Marionette.LayoutView
-  template: require './template'
+  template: require './templates/logout'
   className: 'container-fluid'
 
   ui:

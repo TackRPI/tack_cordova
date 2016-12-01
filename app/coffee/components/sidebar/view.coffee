@@ -8,10 +8,10 @@ class SidebarView extends Marionette.LayoutView
   tagName: 'nav'
 
   menuItems: [
-    { href: '#contacts',          icon: 'fa-user-circle-o', title: 'Contacts', divider: true }
+    # { href: '#contacts',          icon: 'fa-user-circle-o', title: 'Contacts', divider: true }
     { href: '#contact_methods',   icon: 'fa-address-card',  title: 'Contact Methods' }
     { href: '#share_profiles',    icon: 'fa-list',          title: 'Share Profiles', divider: true }
-    { href: '#update_dispatches', icon: 'fa-list',          title: 'Update Dispatches', divider: true }
+    { href: '#update_dispatches', icon: 'fa-refresh',       title: 'Update Dispatches', divider: true }
     { href: '#contacts/new',      icon: 'fa-plus',          title: 'Manual' }
     { href: '#share/add',         icon: 'fa-plus',          title: 'By Username', divider: true }
     { href: '#auth/logout',       icon: 'fa-sign-out',      title: 'Log Out', divider: true }

@@ -1,6 +1,7 @@
 
-# TODO - document
 # BaseDecorator class definition
+# Defines a simple class to decorate models when
+# they are serialized into a view's template
 class BaseDecorator
 
   # Decoration method

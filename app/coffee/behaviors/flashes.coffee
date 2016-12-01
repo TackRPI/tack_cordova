@@ -1,11 +1,14 @@
 
-# TODO - document
+# Helper method to send data to FlashComponent
 _sendFlash = (type, obj) ->
   Backbone.Radio.channel('flash').trigger(type, obj)
 
 # # # # #
 
-# TODO - document
+# FlashesBehavior class definition
+# Provides an easy-to-implement FlashComponent
+# interface for views to create
+# success and error Flashes (two most common use cases)
 class FlashesBehavior extends Marionette.Behavior
 
   initialize: (options={}) ->

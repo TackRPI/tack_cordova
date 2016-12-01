@@ -2,7 +2,9 @@ ConfirmView = require './views/confirmView'
 
 # # # # #
 
-# TODO - document
+# ConfirmComponent class definition
+# Extends AbstractModalComponent to be used with a
+# basic view that handles confirmation and denial from an end-user
 class ConfirmComponent extends require '../modal/abstract'
 
   radioRequests:

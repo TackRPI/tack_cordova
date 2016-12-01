@@ -1,9 +1,8 @@
-_           = require 'underscore'
-Marionette  = require 'backbone.marionette'
 
-# # # # #
-
-# TODO - document
+# ConfirmView class definition
+# Defines a basic view that's displayed in a Modal window
+# to ask a user to confirm or deny a specific prompt.
+# This view is used by the DestroyButton behavior for user interaction
 class ConfirmView extends Marionette.LayoutView
   className: 'modal-content'
   template: require './templates/confirm_view'

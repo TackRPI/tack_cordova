@@ -6,17 +6,4 @@
     a.btn.btn-secondary.w-100( href='#share_profiles/new' )
       i.fa.fa-fw.fa-plus
 
-  .col-xs-12.m-t-1
-
-    ul.list-group
-
-      if items.length == 0
-        li.list-group-item.list-group-item-warning.text-center
-          | No Share Profiles
-
-      each profile in items
-
-        a.list-group-item( href='#share_profiles/' + profile._id )
-          .row
-            .col-xs-12= profile.label
-            .col-xs-12= profile.cached.length
+  .col-xs-12.m-t-1( data-region='list' )

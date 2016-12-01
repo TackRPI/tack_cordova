@@ -4,19 +4,23 @@ class HomeView extends Marionette.LayoutView
   className: 'container-fluid'
 
   authenticatedItems: [
-    'contacts'
-    'contact_methods'
-    'share_profiles'
-    'logout'
+    'manual'
+    'username'
+    # 'contacts'
+    # 'contact_methods'
+    # 'share_profiles'
+    # 'logout'
   ]
 
   menuItems:
-    contacts:         { href: '#contacts', icon: 'fa-user-circle-o', label: 'Contacts' }
-    contact_methods:  { href: '#contact_methods', icon: 'fa-address-card', label: 'Contact Methods' }
-    share_profiles:   { href: '#share_profiles', icon: 'fa-list', label: 'Share Profiles' }
+    manual:           { href: '#contacts/new', icon: 'fa-plus', label: 'Add by Phone Number' }
+    username:         { href: '#share/add', icon: 'fa-plus', label: 'Add by Tack Username' }
+    # contacts:         { href: '#contacts', icon: 'fa-user-circle-o', label: 'Contacts' }
+    # contact_methods:  { href: '#contact_methods', icon: 'fa-address-card', label: 'Contact Methods' }
+    # share_profiles:   { href: '#share_profiles', icon: 'fa-list', label: 'Share Profiles' }
     sign_in:          { href: '#auth/sign_in', icon: 'fa-sign-in', label: 'Sign In' }
     register:         { href: '#auth/register', icon: 'fa-user-plus', label: 'Register' }
-    logout:           { href: '#auth/logout', icon: 'fa-sign-out', label: 'Log Out' }
+    # logout:           { href: '#auth/logout', icon: 'fa-sign-out', label: 'Log Out' }
 
   serializeData: ->
     authenticated = Backbone.Radio.channel('auth').request('is:authenticated')

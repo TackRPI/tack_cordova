@@ -1,7 +1,11 @@
 
-# TODO - document
+# ModelEventsBehavior class definition
+# Creates standard model event listeners and
+# defines associated callbacks on the view to which
+# the behavior is attached.
 class ModelEventsBehavior extends Marionette.Behavior
 
+  # Standard Backbone.Model REST events
   modelEvents:
     'request':  'onModelRequest'
     'sync':     'onModelSync'

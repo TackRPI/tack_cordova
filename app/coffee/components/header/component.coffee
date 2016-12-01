@@ -1,6 +1,9 @@
 LayoutView = require './views/layout'
 
-# TODO - document
+# HeaderService class definition
+# Defines a basic service for managing application
+# header state. Displays the authenticated user,
+# or the 'unauthenticated' message if none is defined
 class HeaderService extends Marionette.Service
 
   initialize: ->

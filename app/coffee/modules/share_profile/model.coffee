@@ -10,15 +10,21 @@ class ShareProfileModel extends Backbone.Model
 
   # Helper method for sending a ShareProfile via SMS
   toMessage: =>
-    cached = @get('cached')
 
     message = "Hello from Tack!\n"
+    message += @get('created_by_name')
+    message += "\n"
 
-    for method in cached.methods
-      message += method.label + ':'
-      message += "\t"
-      message += method.value
-      message += "\n"
+    cached = @get('cached')
+    for name, methods of cached
+      for each in methods
+        message += each.label + ':'
+        message += "\t"
+        message += each.phone     if each.phone
+        message += each.email     if each.email
+        message += each.formatted if each.formatted
+        message += each.username  if each.username
+        message += "\n"
 
     return message
 

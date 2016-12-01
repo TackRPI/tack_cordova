@@ -22,14 +22,17 @@ class UpdateDispatchService extends require '../base/service'
     .then (updates) =>
       Promise.each(updates.models, (update) =>
         return update.syncToContacts()
-      )
+      ).then () =>
+        message = 'Synced ' + updates.length + ' contacts.'
+        Backbone.Radio.channel('flash').trigger('success', { message: message })
+        @destroyUpdates()
 
   # Destroys all UpdateDisaptches after syncUpdates
   destroyUpdates: =>
     @collection()
     .then (updates) =>
       Promise.each(updates.models, (update) =>
-        return update.destroy()
+        return update.destroyPromise()
       )
 
 # # # # #

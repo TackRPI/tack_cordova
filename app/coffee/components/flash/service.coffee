@@ -2,7 +2,10 @@ FlashCollection = require './collection'
 
 # # # # #
 
-# TODO - document
+# FlashService class definition
+# Defined a basic service to return the FlashesCollection
+# when requested. This is used by the FlashComponent to retrieve
+# the FlashCollection it is responsible for rendering
 class FlashService extends Backbone.Marionette.Service
 
   radioRequests:

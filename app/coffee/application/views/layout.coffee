@@ -1,6 +1,8 @@
 
-# Application layout
-class LayoutView extends Marionette.LayoutView
+# ApplicationLayout class definition
+# Defines a Marionette.LayoutView to manage
+# top-level application regions
+class ApplicationLayout extends Marionette.LayoutView
   el: 'body'
 
   template: false
@@ -12,15 +14,15 @@ class LayoutView extends Marionette.LayoutView
 
     modalRegion:
       selector:     '[data-region=modal]'
-      regionClass:  require './modalRegion'
+      regionClass:  require '../regions/modalRegion'
 
     mainRegion:
       selector:     '[data-region=main]'
-      regionClass:  require './animatedRegion'
+      regionClass:  require '../regions/animatedRegion'
       inAnimation:  'fadeInUp'
       outAnimation: 'fadeOutDown'
 
 # # # # #
 
 # Exports instance
-module.exports = new LayoutView().render()
+module.exports = new ApplicationLayout().render()
