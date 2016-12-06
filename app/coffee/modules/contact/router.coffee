@@ -5,6 +5,7 @@ NewRoute  = require './new/route'
 
 # # # # #
 
+# ContactRouter class definition
 class ContactRouter extends require '../base/router'
 
   routes:

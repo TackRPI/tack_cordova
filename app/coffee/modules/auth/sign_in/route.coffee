@@ -2,6 +2,7 @@ LayoutView  = require './views/layout'
 
 # # # # #
 
+# SignInRoute class definition
 class SignInRoute extends Backbone.Routing.Route
 
   initialize: (options={}) ->

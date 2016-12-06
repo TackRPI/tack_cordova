@@ -2,6 +2,7 @@ LogoutView  = require './views/layout'
 
 # # # # #
 
+# LogoutRoute class definition
 class LogoutRoute extends require '../../base/route'
 
   render: (id) ->

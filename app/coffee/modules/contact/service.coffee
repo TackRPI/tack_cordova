@@ -3,6 +3,8 @@ ContactCollection = require './collection'
 
 # # # # #
 
+# ContactService class definition
+# Provides an interface to manage native contacts
 class ContactService extends require '../base/service'
   radioChannel:         'contact'
   modelPrototype:       ContactModel

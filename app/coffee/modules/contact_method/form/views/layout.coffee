@@ -1,4 +1,7 @@
 
+# ContactMethodForm class definition
+# Defines a Marionette.LayoutView class to edit and create
+# ContactMethod models
 class ContactMethodForm extends Marionette.LayoutView
   className: 'row'
 

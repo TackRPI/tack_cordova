@@ -2,6 +2,7 @@ LayoutView  = require './views/layout'
 
 # # # # #
 
+# RegisterRoute class definition
 class RegisterRoute extends Backbone.Routing.Route
 
   initialize: (options={}) ->

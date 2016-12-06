@@ -2,6 +2,7 @@ LayoutView  = require './views/layout'
 
 # # # # #
 
+# ContactMethodEditRoute class definition
 class ContactMethodEditRoute extends Backbone.Routing.Route
 
   initialize: (options={}) ->
