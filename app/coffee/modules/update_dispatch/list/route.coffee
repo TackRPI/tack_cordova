@@ -2,6 +2,7 @@ LayoutView  = require './views/layout'
 
 # # # # #
 
+# UpdateDispatchListRoute class definition
 class UpdateDispatchListRoute extends require '../../base/route'
 
   fetch: ->

@@ -6,6 +6,7 @@ EditRoute = require './edit/route'
 
 # # # # #
 
+# ShareProfileRouter class definition
 class ShareProfileRouter extends require '../base/router'
 
   routes:

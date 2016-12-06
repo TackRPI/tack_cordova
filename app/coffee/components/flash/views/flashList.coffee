@@ -1,4 +1,6 @@
-
+# FlashChild class definition
+# Defines a Marionette.LayoutView to display a FlashModel instance
+# This view auto-dismisses after the timeout defined in the FlashModel instance
 class FlashChild extends Marionette.LayoutView
   className: 'row'
   template: require './templates/flash_child'
@@ -24,10 +26,10 @@ class FlashChild extends Marionette.LayoutView
     @$el.slideToggle().addClass('animated fadeOutRight')
 
   dismiss: =>
-    @model.collection?.remove( @model ) # QUESTION - is this memory safe?
+    @model.collection?.remove( @model )
 
-# # # # #
-
+# FlashList class definition
+# Defines a Marionette.CollectionView to the list of Flashes
 class FlashList extends Marionette.CollectionView
   className: 'container-fluid'
   childView: FlashChild

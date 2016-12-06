@@ -2,7 +2,8 @@ LayoutView  = require './views/layout'
 
 # # # # #
 
-class NewRoute extends require '../../base/route'
+# NewContactRoute class definition
+class NewContactRoute extends require '../../base/route'
 
   fetch: ->
     return Promise.all([
@@ -18,4 +19,4 @@ class NewRoute extends require '../../base/route'
 
 # # # # #
 
-module.exports = NewRoute
+module.exports = NewContactRoute

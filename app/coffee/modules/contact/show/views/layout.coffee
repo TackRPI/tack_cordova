@@ -1,4 +1,6 @@
 
+# ContactShowLayout class definition
+# Defines a basic view for displaying a native contact
 class ContactShowLayout extends Marionette.LayoutView
   template: require './templates/layout'
   className: 'container-fluid'

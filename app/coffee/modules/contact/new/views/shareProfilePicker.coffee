@@ -1,5 +1,8 @@
 
-class ShareProfileChild extends Marionette.LayoutView
+# ShareProfilePickerChild class definition
+# Defines a Marionette.LayoutView to display a ShareProfile model instance
+# in the ShareProfilePicker view
+class ShareProfilePickerChild extends Marionette.LayoutView
   template: require './templates/share_profile_child'
   className: 'list-group-item'
   tagName: 'li'
@@ -21,11 +24,14 @@ class ShareProfileChild extends Marionette.LayoutView
 
 # # # # #
 
-class ShareProfileList extends Marionette.CollectionView
-  childView: ShareProfileChild
+# ShareProfilePickerList class definition
+# Defines a Marionette.CollectionView to list available ShareProfile instances
+# than can be selected by the user
+class ShareProfilePickerList extends Marionette.CollectionView
+  childView: ShareProfilePickerChild
   className: 'list-group'
   tagName: 'ul'
 
 # # # # #
 
-module.exports = ShareProfileList
+module.exports = ShareProfilePickerList

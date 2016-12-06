@@ -1,14 +1,14 @@
 
 # ContactMethodEmpty class definition
-# Defines a Marionette.LayoutView to display a ContactMethod model instance
+# Defines a Marionette.LayoutView to display a message if no
+# ContactMethod model instances are found
 class ContactMethodEmpty extends Marionette.LayoutView
   template: require './templates/contact_method_empty'
   className: 'list-group-item list-group-item-warning'
   tagName: 'li'
 
 # ContactMethodChild class definition
-# Defines a Marionette.LayoutView to display a message if no
-# ContactMethod model instances are found
+# Defines a Marionette.LayoutView to display a ContactMethod model instance
 class ContactMethodChild extends Marionette.LayoutView
   template: require './templates/contact_method_child'
   className: 'list-group-item'

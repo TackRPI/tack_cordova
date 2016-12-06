@@ -2,6 +2,7 @@ HomeRoute = require './home/route'
 
 # # # # #
 
+# HomeRouter class definition
 class HomeRouter extends require '../base/router'
 
   routes:

@@ -2,10 +2,8 @@ LayoutView  = require './views/layout'
 
 # # # # #
 
-class ShareProfileListRoute extends Backbone.Routing.Route
-
-  initialize: (options={}) ->
-    @container = options.container
+# ShareProfileListRoute class definition
+class ShareProfileListRoute extends require '../../base/route'
 
   fetch: ->
     return Backbone.Radio.channel('share_profile').request('collection')

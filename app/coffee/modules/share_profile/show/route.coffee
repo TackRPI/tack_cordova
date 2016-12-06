@@ -2,10 +2,8 @@ LayoutView  = require './views/layout'
 
 # # # # #
 
-class ShareProfileShowRoute extends Backbone.Routing.Route
-
-  initialize: (options={}) ->
-    @container = options.container
+# ShareProfileShowRoute class definition
+class ShareProfileShowRoute extends require '../../base'
 
   fetch: (id) ->
     return Backbone.Radio.channel('share_profile').request('model', id)

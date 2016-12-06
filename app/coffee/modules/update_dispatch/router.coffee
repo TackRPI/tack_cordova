@@ -3,6 +3,7 @@ ListRoute = require './list/route'
 
 # # # # #
 
+# UpdateDispatchRouter class definition
 class UpdateDispatchRouter extends require '../base/router'
 
   routes:

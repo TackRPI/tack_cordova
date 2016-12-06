@@ -1,4 +1,7 @@
 
+# HomeView class definition
+# Defines a Marionette.LayoutView to render the home page of the application
+# Renders different menu items depending on wether or not the end-user has authenticated
 class HomeView extends Marionette.LayoutView
   template: require './templates/layout'
   className: 'container-fluid'
@@ -6,21 +9,13 @@ class HomeView extends Marionette.LayoutView
   authenticatedItems: [
     'manual'
     'username'
-    # 'contacts'
-    # 'contact_methods'
-    # 'share_profiles'
-    # 'logout'
   ]
 
   menuItems:
     manual:           { href: '#contacts/new', icon: 'fa-plus', label: 'Add by Phone Number' }
     username:         { href: '#share/add', icon: 'fa-plus', label: 'Add by Tack Username' }
-    # contacts:         { href: '#contacts', icon: 'fa-user-circle-o', label: 'Contacts' }
-    # contact_methods:  { href: '#contact_methods', icon: 'fa-address-card', label: 'Contact Methods' }
-    # share_profiles:   { href: '#share_profiles', icon: 'fa-list', label: 'Share Profiles' }
     sign_in:          { href: '#auth/sign_in', icon: 'fa-sign-in', label: 'Sign In' }
     register:         { href: '#auth/register', icon: 'fa-user-plus', label: 'Register' }
-    # logout:           { href: '#auth/logout', icon: 'fa-sign-out', label: 'Log Out' }
 
   serializeData: ->
     authenticated = Backbone.Radio.channel('auth').request('is:authenticated')
