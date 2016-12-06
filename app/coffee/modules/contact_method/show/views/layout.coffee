@@ -1,4 +1,7 @@
-
+# ContactMethodShowLayout class definition
+# Defines a Marionette.LayoutView class to display a
+# ContactMethod model instance. This view can also destroy
+# the ContactMethod instance, or navigate the user to the edit page
 class ContactMethodShowLayout extends Marionette.LayoutView
   template: require './templates/layout'
   className: 'container-fluid'

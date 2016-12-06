@@ -3,6 +3,7 @@ AddRoute  = require './add/route'
 
 # # # # #
 
+# ShareRouter class definition
 class ShareRouter extends require '../base/router'
 
   routes:

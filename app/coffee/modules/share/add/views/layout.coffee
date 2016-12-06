@@ -2,7 +2,11 @@ ShareProfilePicker = require '../../../contact/new/views/shareProfilePicker'
 
 # # # # #
 
-class BluetoothView extends Marionette.LayoutView
+# AddViaUsernameView class definition
+# Defines a Marionette.LayoutView class to manage adding new
+# users via Tack username. Includes interface to select a ShareProfile model instance
+# to be shared with the new contact
+class AddViaUsernameView extends Marionette.LayoutView
   template: require './templates/layout'
   className: 'container-fluid'
 
@@ -55,4 +59,4 @@ class BluetoothView extends Marionette.LayoutView
 
 # # # # #
 
-module.exports = BluetoothView
+module.exports = AddViaUsernameView

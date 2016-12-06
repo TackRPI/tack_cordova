@@ -2,10 +2,8 @@ LayoutView  = require './views/layout'
 
 # # # # #
 
-class EditShareProfileRoute extends Backbone.Routing.Route
-
-  initialize: (options={}) ->
-    @container = options.container
+# EditShareProfileRoute class definition
+class EditShareProfileRoute extends require '../../base/route'
 
   fetch: (id) ->
     return Promise.all([

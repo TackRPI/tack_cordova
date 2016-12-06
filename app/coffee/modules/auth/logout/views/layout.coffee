@@ -1,4 +1,7 @@
 
+# LogoutLayout class definition
+# Defines a view with a confirmation to ensure that
+# the end-user is sure they want to logout of the app
 class LogoutLayout extends Marionette.LayoutView
   template: require './templates/logout'
   className: 'container-fluid'

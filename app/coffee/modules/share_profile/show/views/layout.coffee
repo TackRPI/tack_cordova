@@ -1,5 +1,7 @@
 
-class ContactShowLayout extends Marionette.LayoutView
+# ShareProfileShowLayout class definition
+# Defines a Marionette.LayoutView class to display a ShareProfile instance
+class ShareProfileShowLayout extends Marionette.LayoutView
   template: require './templates/layout'
   className: 'container-fluid'
 
@@ -24,4 +26,4 @@ class ContactShowLayout extends Marionette.LayoutView
 
 # # # # #
 
-module.exports = ContactShowLayout
+module.exports = ShareProfileShowLayout

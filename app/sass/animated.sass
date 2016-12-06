@@ -1,0 +1,102 @@
+// Animated Region CSS
+
+// TODO - abstract keyframes into separate files,
+// or moev each animation into its own file
+@keyframes swapUp
+  0%
+    opacity: 0
+    transform: translateY(30rem)
+  100%
+    opacity: 100
+    transform: translateY(0rem)
+
+@keyframes swapDown
+  0%
+    opacity: 100
+    transform: translateY(0rem)
+  100%
+    opacity: 0
+    transform: translateY(30rem)
+
+@keyframes swapOutLeft
+  0%
+    opacity: 100
+    transform: translateX(0rem)
+  100%
+    opacity: 0
+    transform: translateX(-30rem)
+
+@keyframes swapInRight
+  0%
+    opacity: 0
+    transform: translateX(30rem)
+  100%
+    opacity: 100
+    transform: translateX(0rem)
+
+@keyframes swapOutRight
+  0%
+    opacity: 100
+    transform: translateX(0rem)
+  100%
+    opacity: 0
+    transform: translateX(30rem)
+
+@keyframes swapInLeft
+  0%
+    opacity: 0
+    transform: translateX(-30rem)
+  100%
+    opacity: 100
+    transform: translateX(0rem)
+
+.swap-wrapper
+  position: relative
+
+  .swap
+    width: 100%
+    position: absolute
+
+    // Up in, down out
+    &.up-down
+
+      &.first
+        animation: swapUp .3s normal forwards
+
+      &.out
+        &.coming
+          animation: swapUp .5s normal forwards
+
+      &.in
+        &.leaving
+          animation: swapDown .5s normal forwards
+
+    // Right in, left out
+    &.right-in
+
+      &.first
+        animation: swapInRight .3s normal forwards
+
+      &.out
+        &.coming
+          animation: swapInRight .5s normal forwards
+
+      &.in
+        &.leaving
+          animation: swapOutLeft .5s normal forwards
+
+
+    // Left in, right out
+    &.left-in
+
+      &.first
+        animation: swapInLeft .3s normal forwards
+
+      &.out
+        &.coming
+          animation: swapInLeft .3s normal forwards
+
+      &.in
+        &.leaving
+          animation: swapOutRight .3s normal forwards
+

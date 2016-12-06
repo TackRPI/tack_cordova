@@ -6,6 +6,7 @@ LogoutRoute   = require './logout/route'
 
 # # # # #
 
+# AuthRouter class definition
 class AuthRouter extends BaseRouter
 
   routes:

@@ -2,6 +2,7 @@ LayoutView  = require './views/layout'
 
 # # # # #
 
+# AddRoute class definition
 class AddRoute extends require '../../base/route'
 
   fetch: ->

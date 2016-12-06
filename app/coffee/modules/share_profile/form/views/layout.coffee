@@ -1,6 +1,9 @@
 
 # # # # #
 
+# ContactMethodPickerChild class definition
+# Defines a Marionette.LayoutView to display ContactMethod class instances
+# than can be selected
 class ContactMethodPickerChild extends Marionette.LayoutView
   template: require './templates/contact_method_child'
   tagName: 'li'
@@ -30,6 +33,9 @@ class ContactMethodPickerChild extends Marionette.LayoutView
 
 # # # # #
 
+# ContactMethodPicker class definition
+# Defines a Marionette.CollectionView to display a list of available
+# ContactMethod class instances
 class ContactMethodPicker extends Marionette.CollectionView
   className: 'list-group'
   childView: ContactMethodPickerChild
@@ -39,6 +45,9 @@ class ContactMethodPicker extends Marionette.CollectionView
 
 # # # # #
 
+# ShareProfileForm class definition
+# Defines a Marionette.LayoutView to create and edie
+# ShareProfile class instances
 class ShareProfileForm extends Marionette.LayoutView
   template: require './templates/layout'
   className: 'row'

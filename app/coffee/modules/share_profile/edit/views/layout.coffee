@@ -2,6 +2,8 @@ ShareProfileForm = require '../../form/views/layout'
 
 # # # # #
 
+# EditShareProfileLayout class defintion
+# Wrapper view for ShareProfileForm
 class EditShareProfileLayout extends Marionette.LayoutView
   template: require './templates/layout'
   className: 'container-fluid'

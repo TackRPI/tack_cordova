@@ -6,6 +6,7 @@ EditRoute = require './edit/route'
 
 # # # # #
 
+# ContactMethodRouter class definition
 class ContactMethodRouter extends require '../base/router'
 
   routes:

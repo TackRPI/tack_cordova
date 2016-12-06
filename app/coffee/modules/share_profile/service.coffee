@@ -3,6 +3,7 @@ ShareProfileCollection = require './collection'
 
 # # # # #
 
+# ShareProfileService class definition
 class ShareProfileService extends require '../base/service'
   radioChannel:         'share_profile'
   modelPrototype:       ShareProfileModel
