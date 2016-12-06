@@ -3,7 +3,7 @@ LayoutView  = require './views/layout'
 # # # # #
 
 # NewShareProfileRoute class definition
-class NewShareProfileRoute extends require '../../base'
+class NewShareProfileRoute extends require '../../base/route'
 
   fetch: ->
     return Promise.all([
