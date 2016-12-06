@@ -2,10 +2,8 @@ LayoutView  = require './views/layout'
 
 # # # # #
 
-class ContactMethodShowRoute extends Backbone.Routing.Route
-
-  initialize: (options={}) ->
-    @container = options.container
+# ContactMethodShowRoute class definition
+class ContactMethodShowRoute extends require '../../base/route'
 
   fetch: (id) ->
     return Backbone.Radio.channel('contact_method').request('model', id)

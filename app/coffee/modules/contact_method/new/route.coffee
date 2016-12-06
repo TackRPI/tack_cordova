@@ -2,6 +2,7 @@ LayoutView  = require './views/layout'
 
 # # # # #
 
+# NewContactMethodRoute class definition
 class NewContactMethodRoute extends require '../../base/route'
 
   fetch: ->

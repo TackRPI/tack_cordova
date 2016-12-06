@@ -2,6 +2,10 @@ ContactMethodForm = require '../../form/views/layout'
 
 # # # # #
 
+# NewContactMethodLayout class definition
+# Defines a wrapper view for the ContactMethodForm view class
+# This view manages the different forms that can be used to create
+# new ContactMethod model instances
 class NewContactMethodLayout extends Marionette.LayoutView
   template: require './templates/layout'
   className: 'container-fluid'

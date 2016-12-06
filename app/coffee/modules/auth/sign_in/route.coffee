@@ -3,10 +3,7 @@ LayoutView  = require './views/layout'
 # # # # #
 
 # SignInRoute class definition
-class SignInRoute extends Backbone.Routing.Route
-
-  initialize: (options={}) ->
-    @container = options.container
+class SignInRoute extends require '../../base/route'
 
   fetch: ->
     @model = Backbone.Radio.channel('auth').request('authenticator')

@@ -3,10 +3,7 @@ LayoutView  = require './views/layout'
 # # # # #
 
 # RegisterRoute class definition
-class RegisterRoute extends Backbone.Routing.Route
-
-  initialize: (options={}) ->
-    @container = options.container
+class RegisterRoute extends require '../../base/route'
 
   fetch: ->
     @model = Backbone.Radio.channel('auth').request('registrar')
